@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EduSync</string>
+
+    <!-- Login Activity -->
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password</string>
+
+</resources>
