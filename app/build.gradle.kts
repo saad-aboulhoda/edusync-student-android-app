@@ -57,4 +57,7 @@ dependencies {
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
+    implementation("org.kodein.di:kodein-di-framework-android-x:6.2.1")
+    implementation("org.kodein.di:kodein-di-generic-jvm:6.2.1")
 }
