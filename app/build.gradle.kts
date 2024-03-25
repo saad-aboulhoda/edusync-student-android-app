@@ -34,7 +34,7 @@ android {
     }
 
     buildFeatures {
-        dataBinding = true
+        viewBinding = true
     }
 
 }
@@ -46,6 +46,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,4 +64,6 @@ dependencies {
 
     implementation("org.kodein.di:kodein-di-framework-android-x:6.2.1")
     implementation("org.kodein.di:kodein-di-generic-jvm:6.2.1")
+
+    implementation("io.github.chaosleung:pinview:1.4.4")
 }

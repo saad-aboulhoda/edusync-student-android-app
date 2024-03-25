@@ -28,7 +28,24 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
 
-        <item name="fontFamily">@font/poppins_font</item>
+        <!-- Font -->
+        <item name="fontFamily">@font/cairo_font</item>
+
+        <!-- EditTextStyle -->
+        <item name="editTextStyle">@style/App_EditTextStyle</item>
+
+        <!-- ButtonStyle -->
+        <item name="materialButtonStyle">@style/App_ButtonStyle</item>
+    </style>
+
+    <style name="App_EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/rounded_bg</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="App_ButtonStyle" parent="Widget.Material3.Button">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="Theme.EduSync" parent="Base.Theme.EduSync" />

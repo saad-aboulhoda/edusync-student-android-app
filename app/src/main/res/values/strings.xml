@@ -1,10 +1,26 @@
 <resources>
     <string name="app_name">EduSync</string>
 
-    <!-- Login Activity -->
+    <!-- Login Fragment -->
     <string name="login">Login</string>
+    <string name="email_hint">john.smith@edusync.ma</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="password_hint">********</string>
     <string name="forget_password">Forget Password</string>
+
+    <!-- Forget Password - EnterEmailFragment -->
+    <string name="generate_otp">Generate OTP</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Forget Password - EnterOtpFragment -->
+    <string name="enter_otp">Enter OTP</string>
+    <string name="send_again">Send again</string>
+    <string name="verify">Verify</string>
+
+    <!-- Forget Password - ChangePasswordFragment -->
+    <string name="create_new_password">Create New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="submit">Submit</string>
 
 </resources>
