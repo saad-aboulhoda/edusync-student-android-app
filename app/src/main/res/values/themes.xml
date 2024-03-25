@@ -36,6 +36,7 @@
 
         <!-- ButtonStyle -->
         <item name="materialButtonStyle">@style/App_ButtonStyle</item>
+
     </style>
 
     <style name="App_EditTextStyle" parent="Widget.AppCompat.EditText">
@@ -46,6 +47,19 @@
     <style name="App_ButtonStyle" parent="Widget.Material3.Button">
         <item name="android:padding">10dp</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="App_MediumText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="App_SmallText" parent="@style/App_MediumText">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="App_LargeText" parent="@style/App_MediumText">
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="Theme.EduSync" parent="Base.Theme.EduSync" />
