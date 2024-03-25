@@ -35,7 +35,7 @@ class EnterOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.forgetPasswordButtonCancel.popBackStack()
-        binding.forgetPasswordButtonGenerateOtp
+        binding.forgetPasswordButtonVerify
             .navigate(EnterOtpFragmentDirections.actionEnterOtpFragmentToChangePasswordFragment())
     }
 

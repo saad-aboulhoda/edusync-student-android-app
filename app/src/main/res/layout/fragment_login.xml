@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView30" />
 
     <Button
-        android:id="@+id/forget_password_button_generate_otp"
+        android:id="@+id/login_button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"

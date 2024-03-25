@@ -66,4 +66,7 @@ dependencies {
     implementation("org.kodein.di:kodein-di-generic-jvm:6.2.1")
 
     implementation("io.github.chaosleung:pinview:1.4.4")
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

@@ -40,7 +40,8 @@ class EnterEmailFragment : Fragment() {
     }
 
     private fun setTitle() {
-        activity!!.findViewById<TextView>(R.id.auth_text_view_title).text = "Forget Password"
+        requireActivity().findViewById<TextView>(R.id.auth_text_view_title).text =
+            resources.getString(R.string.forget_password)
     }
 
     override fun onDestroyView() {

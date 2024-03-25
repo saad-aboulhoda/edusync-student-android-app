@@ -17,7 +17,7 @@
     <!-- Forget Password - EnterOtpFragment -->
     <string name="enter_otp">OTP أدخل</string>
     <string name="send_again">أرسل مجددا</string>
-    <string name="verify">Verify</string>
+    <string name="verify">تحقق</string>
 
     <!-- Forget Password - ChangePasswordFragment -->
     <string name="create_new_password">أنشيء كلمة الرورو الجديدة</string>

@@ -52,7 +52,7 @@
 
 
     <Button
-        android:id="@+id/forget_password_button_generate_otp"
+        android:id="@+id/forget_password_button_verify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/verify"

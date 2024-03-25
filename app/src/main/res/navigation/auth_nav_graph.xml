@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_enterEmailFragment"
             app:destination="@id/enterEmailFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
     </fragment>
     <fragment
         android:id="@+id/enterEmailFragment"
@@ -37,4 +40,9 @@
         android:name="ma.n1akai.edusync.ui.auth.forget_password.change_password.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="ma.n1akai.edusync.ui.home.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
 </navigation>

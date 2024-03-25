@@ -36,10 +36,13 @@ class LoginFragment : Fragment() {
         setTitle()
         binding.loginButtonForgetPassword
             .navigate(LoginFragmentDirections.actionLoginFragmentToEnterEmailFragment())
+        binding.loginButtonLogin
+            .navigate(LoginFragmentDirections.actionLoginFragmentToHomeActivity())
     }
 
     private fun setTitle() {
-        activity!!.findViewById<TextView>(R.id.auth_text_view_title).text = "Login"
+        requireActivity().findViewById<TextView>(R.id.auth_text_view_title).text =
+            resources.getString(R.string.login)
     }
 
     override fun onDestroyView() {
