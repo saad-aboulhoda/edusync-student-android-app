@@ -23,4 +23,9 @@
     <string name="create_new_password">أنشيء كلمة الرورو الجديدة</string>
     <string name="confirm_new_password">تأكيد كملة المرور الجديدة</string>
     <string name="submit">أرسل</string>
+
+    <!-- Home - DashboardFragment -->
+    <string name="marks">النقاط</string>
+    <string name="homeworks">الواجبات المنزلية</string>
+
 </resources>

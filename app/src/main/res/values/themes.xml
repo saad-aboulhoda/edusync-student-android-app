@@ -62,5 +62,11 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="App_Heading">
+        <item name="android:textColor">@color/md_theme_light_primary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="Theme.EduSync" parent="Base.Theme.EduSync" />
 </resources>
