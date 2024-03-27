@@ -26,6 +26,18 @@
     <!-- Home - DashboardFragment -->
     <string name="marks">Marks</string>
     <string name="homeworks">Homeworks</string>
+    
+    <!-- Home - Menu -->
+    <string name="dashboard">Dashboard</string>
+    <string name="homework">Homework</string>
+    <string name="attendance">Attendance</string>
+    <string name="fee_details">Fee Details</string>
+    <string name="examination">Examination</string>
+    <string name="report_cards">Report Cards</string>
+    <string name="calendar">Calendar</string>
+    <string name="multimedia">Multimedia</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
 
     <!-- Home - ProfileFragment -->
     <string name="roll_number">Roll Number</string>
@@ -35,4 +47,17 @@
     <string name="position_in_class">Position in class</string>
     <string name="fathers_name">Father\'s name</string>
     <string name="mothers_name">Mother\'s name</string>
+    <string name="ask_for_update">Ask for Update</string>
+
+    <!-- Home - AttendanceFragment -->
+    <string name="present">Present</string>
+    <string name="absent">Absent</string>
+    <string name="leave">Leave</string>
+
+    <!-- Home - SingleReportCardFragment -->
+    <string name="performance_profile">Performance Profile</string>
+    <string name="academic_performance">Academic Performance</string>
+    <string name="remarks_by_teacher">Remarks by Teacher</string>
+    <string name="total_attendance_of_the_student">Total attendance of the student</string>
+    <string name="teachers_remark">Thanks for a fantastic year at school this year! It\'s ben awesome to see everyone grow and develop so much and our community has come together so wonderfully with all of our exciting new projects and activities. Hope you all have a fantastic summer - and looking forward to seeing everyone back in the fall.</string>
 </resources>

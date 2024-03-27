@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="65dp"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
             android:textColor="@color/white"
             android:textSize="22sp"
@@ -82,7 +82,8 @@
 
         <TextView
             android:id="@+id/textView18"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/roll_number"
@@ -91,7 +92,7 @@
 
         <TextView
             android:id="@+id/profile_tv_roll_number"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_theme_light_primary"
@@ -104,13 +105,14 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="#ddd"
+            android:background="@color/light_grey"
             app:layout_constraintTop_toBottomOf="@id/textView18"
             tools:layout_editor_absoluteX="14dp" />
 
         <TextView
             android:id="@+id/textView19"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -120,7 +122,7 @@
 
         <TextView
             android:id="@+id/profile_tv_date_of_birth"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_theme_light_primary"
@@ -133,13 +135,14 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="#ddd"
+            android:background="@color/light_grey"
             app:layout_constraintTop_toBottomOf="@id/textView19"
             tools:layout_editor_absoluteX="14dp" />
 
         <TextView
             android:id="@+id/textView20"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -149,7 +152,7 @@
 
         <TextView
             android:id="@+id/profile_tv_blood_group"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_theme_light_primary"
@@ -162,12 +165,13 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="#ddd"
+            android:background="@color/light_grey"
             app:layout_constraintTop_toBottomOf="@id/textView20" />
 
         <TextView
             android:id="@+id/textView21"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -177,7 +181,7 @@
 
         <TextView
             android:id="@+id/profile_tv_emergency_contact"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_theme_light_primary"
@@ -190,12 +194,13 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="#ddd"
+            android:background="@color/light_grey"
             app:layout_constraintTop_toBottomOf="@id/textView21" />
 
         <TextView
             android:id="@+id/textView22"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -205,7 +210,7 @@
 
         <TextView
             android:id="@+id/profile_tv_position_in_class"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_theme_light_primary"
@@ -218,12 +223,13 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="#ddd"
+            android:background="@color/light_grey"
             app:layout_constraintTop_toBottomOf="@id/textView22" />
 
         <TextView
             android:id="@+id/textView23"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -233,7 +239,7 @@
 
         <TextView
             android:id="@+id/profile_tv_fathers_name"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_theme_light_primary"
@@ -246,12 +252,13 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="#ddd"
+            android:background="@color/light_grey"
             app:layout_constraintTop_toBottomOf="@id/textView23" />
 
         <TextView
             android:id="@+id/textView24"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -261,13 +268,22 @@
 
         <TextView
             android:id="@+id/profile_tv_mothers_name"
-            style="@style/App_MediumText"
+            style="@style/App_SmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/md_theme_light_primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView24"
             tools:text="Fatima" />
+
+        <Button
+            android:id="@+id/profile_button_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ask_for_update"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline

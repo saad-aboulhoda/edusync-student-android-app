@@ -28,6 +28,18 @@
     <string name="marks">النقاط</string>
     <string name="homeworks">الواجبات المنزلية</string>
 
+    <!-- Home - Menu -->
+    <string name="dashboard">لوحة التحكم</string>
+    <string name="homework">الواجب المنزلي</string>
+    <string name="attendance">الحضور</string>
+    <string name="fee_details">تفاصيل الرسوم</string>
+    <string name="examination">الاختبار</string>
+    <string name="report_cards">بطاقات التقارير</string>
+    <string name="calendar">التقويم</string>
+    <string name="multimedia">الوسائط المتعددة</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="logout">تسجيل الخروج</string>
+
     <!-- Home - ProfileFragment -->
     <string name="roll_number">رقم القائمة</string>
     <string name="date_of_birth">تاريخ الميلاد</string>
@@ -36,5 +48,18 @@
     <string name="position_in_class">الترتيب في الفصل</string>
     <string name="fathers_name">اسم الأب</string>
     <string name="mothers_name">اسم الأم</string>
+    <string name="ask_for_update">طلب تغيير</string>
+
+    <!-- Home - AttendanceFragment -->
+    <string name="present">حضور</string>
+    <string name="absent">غياب</string>
+    <string name="leave">رحيل</string>
+
+    <!-- Home - SingleReportCardFragment -->
+    <string name="performance_profile">ملف تعريف الأداء</string>
+    <string name="academic_performance">الأداء الأكاديمي</string>
+    <string name="remarks_by_teacher">ملاحظات المعلم</string>
+    <string name="total_attendance_of_the_student">إجمالي الحضور للطالب</string>
+    <string name="teachers_remark">شكرًا على العام الرائع الذي قضيته في المدرسة هذا العام! إنه لأمر رائع أن نرى الجميع ينمون ويتطورون كثيرًا وقد اجتمع مجتمعنا معًا بشكل رائع مع جميع مشاريعنا وأنشطتنا الجديدة والمثيرة. أتمنى لكم جميعًا قضاء صيف رائع - ونتطلع إلى رؤية الجميع مرة أخرى في الخريف.</string>
 
 </resources>

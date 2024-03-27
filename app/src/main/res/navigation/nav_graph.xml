@@ -9,5 +9,71 @@
         android:id="@+id/dashboardFragment"
         android:name="ma.n1akai.edusync.ui.home.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="ma.n1akai.edusync.ui.home.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_multimediaFragment"
+            app:destination="@id/multimediaFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_reportCardsFragment"
+            app:destination="@id/reportCardsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_attendanceFragment"
+            app:destination="@id/attendanceFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_examinationFragment"
+            app:destination="@id/examinationFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_feeDetailsFragment"
+            app:destination="@id/feeDetailsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/attendanceFragment"
+        android:name="ma.n1akai.edusync.ui.home.attendance.AttendanceFragment"
+        android:label="fragment_attendance"
+        tools:layout="@layout/fragment_attendance" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="ma.n1akai.edusync.ui.home.calendar.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/examinationFragment"
+        android:name="ma.n1akai.edusync.ui.home.examination.ExaminationFragment"
+        android:label="fragment_examination"
+        tools:layout="@layout/fragment_examination" />
+    <fragment
+        android:id="@+id/feeDetailsFragment"
+        android:name="ma.n1akai.edusync.ui.home.feedetails.FeeDetailsFragment"
+        android:label="fragment_fee_details"
+        tools:layout="@layout/fragment_fee_details" />
+    <fragment
+        android:id="@+id/multimediaFragment"
+        android:name="ma.n1akai.edusync.ui.home.multimedia.MultimediaFragment"
+        android:label="fragment_multimedia"
+        tools:layout="@layout/fragment_multimedia" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ma.n1akai.edusync.ui.home.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/reportCardsFragment"
+        android:name="ma.n1akai.edusync.ui.home.reportcards.ReportCardsFragment"
+        android:label="fragment_report_cards"
+        tools:layout="@layout/fragment_report_cards" />
 </navigation>
