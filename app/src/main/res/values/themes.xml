@@ -40,7 +40,7 @@
     </style>
 
     <style name="App_EditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="android:background">@drawable/rounded_bg</item>
+        <item name="android:background">@drawable/rounded_et_bg</item>
         <item name="android:padding">12dp</item>
     </style>
 

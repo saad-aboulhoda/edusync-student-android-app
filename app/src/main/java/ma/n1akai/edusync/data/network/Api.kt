@@ -14,28 +14,10 @@ import retrofit2.http.POST
 interface Api {
 
     @FormUrlEncoded
-    @POST("login")
+    @POST("auth/students")
     suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String
     ) : Response<AuthResponse>
-
-    companion object {
-        operator fun invoke(
-            networkConnectionInterceptor: NetworkConnectionInterceptor
-        ) : Api {
-
-            val okHttpClient = OkHttpClient.Builder()
-                .addInterceptor(networkConnectionInterceptor)
-                .build()
-
-            return Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl("")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(Api::class.java)
-        }
-    }
 
 }
