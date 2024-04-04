@@ -15,6 +15,7 @@ import ma.n1akai.edusync.R
 import ma.n1akai.edusync.databinding.FragmentLoginBinding
 import ma.n1akai.edusync.ui.home.HomeActivity
 import ma.n1akai.edusync.util.UiState
+import ma.n1akai.edusync.util.isValidEmail
 import ma.n1akai.edusync.util.navigate
 import ma.n1akai.edusync.util.snackbar
 
@@ -24,6 +25,8 @@ class LoginFragment : Fragment() {
     private val viewModel: LoginViewModel by viewModels()
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+    private var email: String? = null
+    private var password: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,33 +39,63 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle()
-        binding.loginButtonForgetPassword
-            .navigate(LoginFragmentDirections.actionLoginFragmentToEnterEmailFragment())
-        binding.loginButtonLogin.setOnClickListener {
-            binding.apply {
-                viewModel
-                    .login(loginEditTextEmail.text.toString(), loginEditTextPassword.text.toString())
-            }
-        }
-        viewModel.login.observe(viewLifecycleOwner) {
-            when(it) {
-                is UiState.Loading -> {
-                    binding.loginButtonLogin.snackbar("Loading")
-                }
-                is UiState.Success -> {
-                    startActivity(Intent(requireActivity(), HomeActivity::class.java))
-                    requireActivity().finish();
-                }
-                is UiState.Failure -> {
-                    binding.loginButtonLogin.snackbar(it.error!!)
-                }
-            }
-        }
+        forgetPassword()
+        sendLoginInfo()
+        observer()
     }
 
     private fun setTitle() {
         requireActivity().findViewById<TextView>(R.id.auth_text_view_title).text =
             resources.getString(R.string.login)
+    }
+
+    private fun forgetPassword() {
+        binding.loginButtonForgetPassword
+            .navigate(LoginFragmentDirections.actionLoginFragmentToEnterEmailFragment())
+    }
+
+    private fun validate() : Boolean {
+        binding.apply {
+            email = loginEditTextEmail.text.toString().trim().lowercase()
+            password = loginEditTextPassword.text.toString()
+        }
+        if (email.isNullOrBlank() || password.isNullOrBlank()) {
+            binding.root.snackbar("Email and Password are required")
+            return false
+        }
+        if (!email!!.isValidEmail()) {
+            binding.root.snackbar("Email is not valid")
+            return false
+        }
+
+        return true
+    }
+
+    private fun sendLoginInfo() {
+        binding.loginButtonLogin.setOnButtonClickListener {
+            if (validate()) {
+                viewModel.login(email!!, password!!)
+            }
+        }
+    }
+
+    private fun observer() {
+        viewModel.login.observe(viewLifecycleOwner) {
+            when(it) {
+                is UiState.Loading -> {
+                    binding.loginButtonLogin.showProgress()
+                }
+                is UiState.Success -> {
+                    binding.loginButtonLogin.hideProgress()
+                    startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                    requireActivity().finish();
+                }
+                is UiState.Failure -> {
+                    binding.loginButtonLogin.hideProgress()
+                    binding.loginButtonLogin.snackbar(it.error!!)
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

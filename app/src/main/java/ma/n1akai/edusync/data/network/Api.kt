@@ -1,6 +1,7 @@
 package ma.n1akai.edusync.data.network
 
 import ma.n1akai.edusync.data.network.responses.AuthResponse
+import ma.n1akai.edusync.data.network.responses.ForgetPasswordResponse
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -19,5 +20,18 @@ interface Api {
         @Field("email") email: String,
         @Field("password") password: String
     ) : Response<AuthResponse>
+
+    @FormUrlEncoded
+    @POST("forget-password/student")
+    suspend fun forgetPassword(
+        @Field("email") email: String
+    ) : Response<ForgetPasswordResponse>
+
+    @FormUrlEncoded
+    @POST("/very-otp/student")
+    suspend fun verifyOtp(
+        @Field("email") email: String,
+        @Field("otp") otp: String
+    ) : Response<ForgetPasswordResponse>
 
 }

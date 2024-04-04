@@ -60,11 +60,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView30" />
 
-    <Button
+    <ma.n1akai.edusync.components.common.ButtonWithProgress
         android:id="@+id/login_button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        app:buttonText="@string/login"
         app:layout_constraintBottom_toTopOf="@+id/login_button_forget_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

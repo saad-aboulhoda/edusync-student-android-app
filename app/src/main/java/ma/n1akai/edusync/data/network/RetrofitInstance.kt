@@ -1,11 +1,16 @@
 package ma.n1akai.edusync.data.network
 
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 object RetrofitInstance {
 
     private val retrofit: Retrofit by lazy {
+        val client = OkHttpClient().newBuilder()
+
+
         Retrofit.Builder()
             .baseUrl("http://10.0.2.2/")
             .addConverterFactory(GsonConverterFactory.create())

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
+import ma.n1akai.edusync.components.common.ButtonWithProgress
 
 fun Context.toast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
@@ -17,6 +18,12 @@ fun View.snackbar(message: String) {
 
 fun Button.navigate(directions: NavDirections) {
     setOnClickListener {
+        findNavController().navigate(directions)
+    }
+}
+
+fun ButtonWithProgress.navigate(directions: NavDirections) {
+    setOnButtonClickListener {
         findNavController().navigate(directions)
     }
 }

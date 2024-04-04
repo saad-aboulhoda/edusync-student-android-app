@@ -35,11 +35,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-    <Button
+    <ma.n1akai.edusync.components.common.ButtonWithProgress
         android:id="@+id/forgetPasswordButtonGenerateOtp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/generate_otp"
+        app:buttonText="@string/generate_otp"
         app:layout_constraintBottom_toTopOf="@+id/forget_password_button_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

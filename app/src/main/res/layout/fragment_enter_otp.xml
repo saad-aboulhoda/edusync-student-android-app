@@ -51,11 +51,11 @@
         app:layout_constraintTop_toBottomOf="@id/forget_password_pin_view_otp" />
 
 
-    <Button
+    <ma.n1akai.edusync.components.common.ButtonWithProgress
         android:id="@+id/forget_password_button_verify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/verify"
+        app:buttonText="@string/verify"
         app:layout_constraintBottom_toTopOf="@+id/forget_password_button_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
