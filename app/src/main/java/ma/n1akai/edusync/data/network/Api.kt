@@ -34,4 +34,12 @@ interface Api {
         @Field("otp") otp: String
     ) : Response<ForgetPasswordResponse>
 
+    @FormUrlEncoded
+    @POST("/change-password/student")
+    suspend fun changePassword(
+        @Field("email") email: String,
+        @Field("otp") otp: String,
+        @Field("password") password: String
+    ) : Response<ForgetPasswordResponse>
+
 }

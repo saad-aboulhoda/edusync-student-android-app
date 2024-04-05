@@ -7,7 +7,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ma.n1akai.edusync.data.repository.AuthRepository
+import ma.n1akai.edusync.util.ApiException
+import ma.n1akai.edusync.util.NoInternetException
 import ma.n1akai.edusync.util.UiState
+import ma.n1akai.edusync.util.safeLaunch
+import java.net.SocketTimeoutException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,11 +22,13 @@ class LoginViewModel @Inject constructor(private val repository: AuthRepository)
         get() = _login
 
     fun login(email: String, password: String) {
-        viewModelScope.launch {
+        viewModelScope.safeLaunch({
             _login.value = UiState.Loading
-             repository.login(email, password) {
-                 _login.value = it
+            repository.login(email, password) {
+                _login.value = it
             }
+        }) {
+            _login.value = UiState.Failure(it)
         }
     }
 

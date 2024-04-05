@@ -46,10 +46,9 @@ class EnterOtpFragment : Fragment() {
     }
 
     private fun verify() {
-        email = arguments?.getString("email")
-        otp = binding.forgetPasswordPinViewOtp.text.toString()
-
         binding.forgetPasswordButtonVerify.setOnButtonClickListener {
+            email = arguments?.getString("email")
+            otp = binding.forgetPasswordPinViewOtp.text.toString()
             viewModel.verifyOtp(email!!, otp!!)
         }
     }
@@ -65,7 +64,7 @@ class EnterOtpFragment : Fragment() {
                         hideProgress()
                         findNavController()
                             .navigate(EnterOtpFragmentDirections
-                                .actionEnterOtpFragmentToChangePasswordFragment())
+                                .actionEnterOtpFragmentToChangePasswordFragment(email!!, otp!!))
                     }
                     is UiState.Failure -> {
                         hideProgress()

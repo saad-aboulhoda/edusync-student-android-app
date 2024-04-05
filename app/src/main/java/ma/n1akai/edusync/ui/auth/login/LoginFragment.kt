@@ -88,7 +88,7 @@ class LoginFragment : Fragment() {
                 is UiState.Success -> {
                     binding.loginButtonLogin.hideProgress()
                     startActivity(Intent(requireActivity(), HomeActivity::class.java))
-                    requireActivity().finish();
+                    requireActivity().finish()
                 }
                 is UiState.Failure -> {
                     binding.loginButtonLogin.hideProgress()

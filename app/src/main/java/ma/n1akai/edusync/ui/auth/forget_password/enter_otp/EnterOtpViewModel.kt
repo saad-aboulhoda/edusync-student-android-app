@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ma.n1akai.edusync.data.repository.AuthRepository
 import ma.n1akai.edusync.util.UiState
+import ma.n1akai.edusync.util.safeLaunch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,11 +19,13 @@ class EnterOtpViewModel @Inject constructor(private val repository: AuthReposito
         get() = _verifyOtp
 
     fun verifyOtp(email: String, otp: String) {
-        viewModelScope.launch {
+        viewModelScope.safeLaunch({
             _verifyOtp.value = UiState.Loading
             repository.verifyOtp(email, otp) {
                 _verifyOtp.value = it
             }
+        }) {
+            _verifyOtp.value = UiState.Failure(it)
         }
     }
 

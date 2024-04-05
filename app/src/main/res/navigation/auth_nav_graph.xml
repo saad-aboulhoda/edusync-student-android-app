@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_loginFragment_to_enterEmailFragment"
             app:destination="@id/enterEmailFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_homeActivity"
-            app:destination="@id/homeActivity" />
     </fragment>
     <fragment
         android:id="@+id/enterEmailFragment"
@@ -24,7 +21,8 @@
         tools:layout="@layout/fragment_enter_email" >
         <action
             android:id="@+id/action_enterEmailFragment_to_enterOtpFragment"
-            app:destination="@id/enterOtpFragment" />
+            app:destination="@id/enterOtpFragment"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/enterOtpFragment"
@@ -33,7 +31,8 @@
         tools:layout="@layout/fragment_enter_otp" >
         <action
             android:id="@+id/action_enterOtpFragment_to_changePasswordFragment"
-            app:destination="@id/changePasswordFragment" />
+            app:destination="@id/changePasswordFragment"
+            app:popUpTo="@id/loginFragment" />
         <argument
             android:name="email"
             app:argType="string" />
@@ -42,10 +41,16 @@
         android:id="@+id/changePasswordFragment"
         android:name="ma.n1akai.edusync.ui.auth.forget_password.change_password.ChangePasswordFragment"
         android:label="fragment_change_password"
-        tools:layout="@layout/fragment_change_password" />
-    <activity
-        android:id="@+id/homeActivity"
-        android:name="ma.n1akai.edusync.ui.home.HomeActivity"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home" />
+        tools:layout="@layout/fragment_change_password" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="otp"
+            app:argType="string" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/loginFragment" />
 </navigation>

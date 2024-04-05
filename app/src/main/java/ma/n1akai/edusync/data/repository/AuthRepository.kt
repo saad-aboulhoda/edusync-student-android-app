@@ -43,4 +43,15 @@ class AuthRepository(
         }
     }
 
+    suspend fun changePassword(email: String, opt: String, password: String, result: (UiState<String>) -> Unit) {
+        val response: ForgetPasswordResponse = apiRequest {
+            api.changePassword(email, opt, password)
+        }
+        if (!response.error) {
+            result.invoke(UiState.Success(response.message))
+        } else {
+            result.invoke(UiState.Failure(response.message))
+        }
+    }
+
 }
