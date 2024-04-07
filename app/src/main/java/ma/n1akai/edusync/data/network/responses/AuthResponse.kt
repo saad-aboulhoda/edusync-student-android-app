@@ -5,5 +5,5 @@ import ma.n1akai.edusync.data.models.Student
 data class AuthResponse (
     val error: Boolean?,
     val message: String?,
-    val student: Student?
+    val token: String?
 )

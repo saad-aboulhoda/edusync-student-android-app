@@ -78,4 +78,7 @@ dependencies {
 
     // Loggin Interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // Splach Screen
+    implementation("androidx.core:core-splashscreen:1.0.0")
 }

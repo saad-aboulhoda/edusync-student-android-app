@@ -24,9 +24,9 @@
     <string name="submit">Submit</string>
 
     <!-- Home - DashboardFragment -->
-    <string name="marks">Marks</string>
+    <string name="latest_tests">Latest tests</string>
     <string name="homeworks">Homeworks</string>
-    
+
     <!-- Home - Menu -->
     <string name="dashboard">Dashboard</string>
     <string name="homework">Homework</string>

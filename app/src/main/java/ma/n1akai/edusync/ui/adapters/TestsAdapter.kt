@@ -5,26 +5,26 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import ma.n1akai.edusync.data.models.Mark
+import ma.n1akai.edusync.data.models.Test
 import ma.n1akai.edusync.databinding.NotesListItemBinding
 
-class MarksAdapter : RecyclerView.Adapter<MarksAdapter.MarksViewHolder>() {
+class TestsAdapter : RecyclerView.Adapter<TestsAdapter.MarksViewHolder>() {
     inner class MarksViewHolder(val binding: NotesListItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private val diffCallback = object : DiffUtil.ItemCallback<Mark>() {
-        override fun areItemsTheSame(oldItem: Mark, newItem: Mark): Boolean {
-            return oldItem.id == newItem.id
+    private val diffCallback = object : DiffUtil.ItemCallback<Test>() {
+        override fun areItemsTheSame(oldItem: Test, newItem: Test): Boolean {
+            return oldItem.test_id == newItem.test_id
         }
 
-        override fun areContentsTheSame(oldItem: Mark, newItem: Mark): Boolean {
+        override fun areContentsTheSame(oldItem: Test, newItem: Test): Boolean {
             return oldItem == newItem
         }
 
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
-    var marks: List<Mark>
+    var tests: List<Test>
         get() = differ.currentList
         set(value) {
             differ.submitList(value)
@@ -34,14 +34,14 @@ class MarksAdapter : RecyclerView.Adapter<MarksAdapter.MarksViewHolder>() {
         MarksViewHolder(NotesListItemBinding
             .inflate(LayoutInflater.from(parent.context), parent, false))
 
-    override fun getItemCount() = marks.size
+    override fun getItemCount() = tests.size
 
     override fun onBindViewHolder(holder: MarksViewHolder, position: Int) {
         holder.binding.apply {
-            val mark = marks[position]
-            tvLabel.text = mark.m
-            tvDate.text = mark.date
-            tvNote.text = mark.note.toString()
+            val test = tests[position]
+            tvLabel.text = test.course_name
+            tvDate.text = test.created_at
+            tvNote.text = test.mark.toString()
         }
     }
 

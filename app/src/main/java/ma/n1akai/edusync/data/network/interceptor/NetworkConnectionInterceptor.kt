@@ -1,4 +1,4 @@
-package ma.n1akai.edusync.data.network
+package ma.n1akai.edusync.data.network.interceptor
 
 import android.content.Context
 import android.net.ConnectivityManager

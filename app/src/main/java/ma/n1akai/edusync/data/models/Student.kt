@@ -9,4 +9,11 @@ data class Student(
     val mothers_name: String?,
     val join_date: String?,
     val email: String?,
-)
+    val class_id: String?,
+    val class_name: String?,
+    val class_year: String?,
+) {
+    fun getFullName(): String {
+        return "${last_name?.uppercase()} ${first_name?.uppercase()}"
+    }
+}
