@@ -7,6 +7,29 @@
     tools:context=".ui.home.profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:elevation="20dp"
+        android:visibility="gone">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:indeterminate="true"
+            app:indicatorSize="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:trackColor="@color/md_theme_light_primaryContainer"
+            app:trackThickness="6dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -57,6 +80,7 @@
             tools:text="ABOULHODA SAAD" />
 
         <TextView
+            android:id="@+id/profile_tv_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -130,35 +154,6 @@
             app:layout_constraintTop_toTopOf="@+id/textView19"
             tools:text="30/01/2003" />
 
-        <View
-            android:id="@+id/view1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@id/textView19"
-            tools:layout_editor_absoluteX="14dp" />
-
-        <TextView
-            android:id="@+id/textView20"
-            style="@style/App_SmallText"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/blood_group"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view1" />
-
-        <TextView
-            android:id="@+id/profile_tv_blood_group"
-            style="@style/App_SmallText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_theme_light_primary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView20"
-            tools:text="A+" />
 
         <View
             android:id="@+id/view2"
@@ -166,7 +161,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@id/textView20" />
+            app:layout_constraintTop_toBottomOf="@id/textView19" />
 
         <TextView
             android:id="@+id/textView21"
@@ -189,34 +184,6 @@
             app:layout_constraintTop_toTopOf="@+id/textView21"
             tools:text="+212615277264" />
 
-        <View
-            android:id="@+id/view3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@id/textView21" />
-
-        <TextView
-            android:id="@+id/textView22"
-            style="@style/App_SmallText"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/position_in_class"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3" />
-
-        <TextView
-            android:id="@+id/profile_tv_position_in_class"
-            style="@style/App_SmallText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_theme_light_primary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView22"
-            tools:text="21" />
 
         <View
             android:id="@+id/view4"
@@ -224,7 +191,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@id/textView22" />
+            app:layout_constraintTop_toBottomOf="@id/textView21" />
 
         <TextView
             android:id="@+id/textView23"

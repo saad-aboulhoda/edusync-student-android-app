@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -18,7 +19,9 @@ import ma.n1akai.edusync.data.models.Student
 import ma.n1akai.edusync.databinding.ActivityHomeBinding
 import ma.n1akai.edusync.ui.auth.AuthActivity
 import ma.n1akai.edusync.util.UiState
+import ma.n1akai.edusync.util.hide
 import ma.n1akai.edusync.util.safeLaunch
+import ma.n1akai.edusync.util.show
 import ma.n1akai.edusync.util.snackbar
 
 @AndroidEntryPoint
@@ -37,22 +40,19 @@ class HomeActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         setUpNavController()
         setUpToolBar()
+        destinationUi()
         getStudent()
         observer()
     }
 
     private fun setUpNavController() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
-            as NavHostFragment
+                as NavHostFragment
         navController = navHostFragment.navController
     }
 
     private fun setUpToolBar() {
-        binding.toolbar.let {
-            it.setupWithNavController(navController)
-            it.setTitle("ABOULHODA SAAD")
-            it.setSubtitle("Class A-01")
-        }
+        binding.toolbar.setupWithNavController(navController)
     }
 
     private fun getStudent() {
@@ -62,22 +62,56 @@ class HomeActivity : AppCompatActivity() {
     private fun observer() {
         viewModel.student.observe(this) {
             binding.root.apply {
-                when(it) {
+                when (it) {
                     is UiState.Loading -> {
-                        snackbar("Loading")
+                        binding.homeLoadingLayout.show()
                     }
+
                     is UiState.Success -> {
+                        binding.homeLoadingLayout.hide()
                         student = it.data
-                        val fullName = student.getFullName()
-                        binding.toolbar.apply {
-                            setTitle(fullName)
-                            setSubtitle(student.class_name?.uppercase())
-                        }
-                        snackbar("Welcome, $fullName")
+                        setUpToolbarTitleSubTitleLogo()
                     }
+
                     is UiState.Failure -> {
+                        binding.homeLoadingLayout.hide()
                         snackbar(it.error!!)
                     }
+                }
+            }
+        }
+    }
+
+    fun destinationUi() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val id = destination.id
+            when(id) {
+                R.id.menuFragment -> {
+                    binding.toolbar.apply {
+                        setLogo(null)
+                        setSubtitle(null)
+                        setTitle(null)
+                        setNavigationIcon(R.drawable.ic_close)
+                    }
+                }
+                R.id.dashboardFragment -> {
+                    setUpToolbarTitleSubTitleLogo()
+                }
+            }
+        }
+    }
+
+    private fun setUpToolbarTitleSubTitleLogo() {
+        if (this@HomeActivity::student.isInitialized) {
+            binding.toolbar.apply {
+                val fullName = student.getFullName()
+                setLogo(R.drawable.ic_bento_menu)
+                setTitle(fullName)
+                setSubtitle(student.class_name!!.uppercase())
+
+                getChildAt(2).setOnClickListener {
+                    navController
+                        .navigate(R.id.action_dashboardFragment_to_menuFragment)
                 }
             }
         }

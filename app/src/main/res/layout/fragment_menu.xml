@@ -18,93 +18,126 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_homework"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_dashboard" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/dashboard"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_dashboard" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_homework"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_attendance"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/menu_dashboard"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_homework" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/homework"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_homework" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout4"
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/homework"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_attendance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/menu_homework"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_attendance" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/attendance"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_attendance" />
+
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/attendance"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -118,94 +151,127 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
-        <LinearLayout
-            android:id="@+id/linearLayout5"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_fee_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout6"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_examination"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_fee_details" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/fee_details"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="4dp">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_fee_details" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout6"
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fee_details"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_examination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout7"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_reports_cards"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/menu_fee_details"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_examination" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/examination"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:padding="4dp"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_examination" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout7"
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/examination"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_reports_cards"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
             android:textSize="16sp"
+            app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout6"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/menu_examination"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_report_cards" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/report_cards"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:padding="4dp"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_report_cards" />
+
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/report_cards"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -213,103 +279,137 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:clickable="true"
-        android:focusable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout7">
 
-        <LinearLayout
-            android:id="@+id/linearLayout8"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
             android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout9"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_multimedia"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_calendar" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/calendar"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:padding="4dp"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_calendar" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout9"
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calendar"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_multimedia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout10"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_profile"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout8"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/menu_calendar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_multimedia" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/multimedia"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:padding="4dp"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_multimedia" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout10"
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/multimedia"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menu_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
             android:orientation="vertical"
             android:textSize="16sp"
+            app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/linearLayout9"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/menu_multimedia"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:background="@drawable/circle_white_bg"
-                android:scaleType="center"
-                android:src="@drawable/ic_profile_male" />
-
-            <TextView
-                style="@style/App_MediumText"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/profile"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:padding="4dp"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/circle_white_bg"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_profile_male" />
+
+                <TextView
+                    style="@style/App_MediumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        android:id="@+id/menu_logout"
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

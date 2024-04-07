@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ma.n1akai.edusync.data.models.Homework
 import ma.n1akai.edusync.databinding.HomeworksListItemBinding
+import ma.n1akai.edusync.util.formatToRelativeTime
 
 class HomeworksAdapter : RecyclerView.Adapter<HomeworksAdapter.HomeworkViewHolder>() {
 
@@ -48,7 +49,7 @@ class HomeworksAdapter : RecyclerView.Adapter<HomeworksAdapter.HomeworkViewHolde
         holder.binding.apply {
             val hw = homeworks[position]
             homework.text = hw.homework
-            val concatCourseAndDate = "${hw.course_name} - ${hw.created_at}"
+            val concatCourseAndDate = "${hw.course_name} - ${formatToRelativeTime(hw.created_at)}"
             courseAndDate.text = concatCourseAndDate
             isDone.isChecked = hw.finished == 1
             isDone.setOnCheckedChangeListener { buttonView, isChecked ->

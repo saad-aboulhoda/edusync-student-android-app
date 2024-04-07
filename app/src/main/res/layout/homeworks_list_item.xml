@@ -4,39 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#FFF1EC"
-    android:layout_margin="4dp">
+    android:layout_margin="4dp"
+    app:cardBackgroundColor="#5614B0">
 
-   <androidx.constraintlayout.widget.ConstraintLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:padding="8dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
-       <com.google.android.material.checkbox.MaterialCheckBox
-           android:id="@+id/is_done"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/is_done"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-       <TextView
-           android:id="@+id/homework"
-           style="@style/App_MediumText"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           app:layout_constraintStart_toEndOf="@+id/is_done"
-           app:layout_constraintTop_toTopOf="@+id/is_done"
-           tools:text="Learn Chapter 5 with one Essay" />
+        <TextView
+            android:id="@+id/homework"
+            style="@style/App_MediumText"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/is_done"
+            app:layout_constraintTop_toTopOf="@+id/is_done"
+            tools:text="Learn Chapter 5 with one Essay" />
 
-       <TextView
-           android:id="@+id/course_and_date"
-           style="@style/App_SmallText"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           app:layout_constraintStart_toEndOf="@+id/is_done"
-           app:layout_constraintTop_toBottomOf="@+id/homework"
-           tools:text="English - Today" />
+        <TextView
+            android:id="@+id/course_and_date"
+            style="@style/App_SmallText"
+            android:textColor="@color/light_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/is_done"
+            app:layout_constraintTop_toBottomOf="@+id/homework"
+            tools:text="English - Today" />
 
-   </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

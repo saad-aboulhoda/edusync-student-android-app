@@ -25,6 +25,12 @@ class DashboardFragment : Fragment() {
     private val testsAdapter = TestsAdapter()
     private val homeworksAdapter = HomeworksAdapter()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getTests()
+        viewModel.getHomeworks()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,13 +41,12 @@ class DashboardFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpTests()
-        setUpHomeworks()
+        testsObserver()
+        homeworksObserver()
     }
 
-    private fun setUpTests() {
+    private fun testsObserver() {
         binding.dashboardRcNotes.adapter = testsAdapter
-        viewModel.getTests()
         viewModel.tests.observe(viewLifecycleOwner) {
             binding.root.apply {
                 when (it) {
@@ -50,7 +55,8 @@ class DashboardFragment : Fragment() {
                     }
 
                     is UiState.Success -> {
-                        testsAdapter.tests = it.data
+                        val firstFour = it.data.subList(0, 4)
+                        testsAdapter.tests = firstFour
                     }
 
                     is UiState.Failure -> {
@@ -69,10 +75,9 @@ class DashboardFragment : Fragment() {
         })
     }
 
-    private fun setUpHomeworks() {
+    private fun homeworksObserver() {
         onCheckedChange()
         binding.dashboardRcHomeworks.adapter = homeworksAdapter
-        viewModel.getHomeworks()
         viewModel.homeworks.observe(viewLifecycleOwner) {
             binding.root.apply {
                 when (it) {

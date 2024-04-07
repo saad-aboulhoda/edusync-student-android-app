@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="ma.n1akai.edusync.ui.home.dashboard.DashboardFragment"
-        android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        android:label="@string/dashboard"
+        tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
@@ -17,29 +17,44 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="ma.n1akai.edusync.ui.home.menu.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_multimediaFragment"
-            app:destination="@id/multimediaFragment" />
+            app:destination="@id/multimediaFragment"
+            app:popUpTo="@id/dashboardFragment"/>
         <action
             android:id="@+id/action_menuFragment_to_reportCardsFragment"
-            app:destination="@id/reportCardsFragment" />
+            app:destination="@id/reportCardsFragment"
+            app:popUpTo="@id/dashboardFragment"/>
         <action
             android:id="@+id/action_menuFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/dashboardFragment"/>
         <action
             android:id="@+id/action_menuFragment_to_attendanceFragment"
-            app:destination="@id/attendanceFragment" />
+            app:destination="@id/attendanceFragment"
+            app:popUpTo="@id/dashboardFragment"/>
         <action
             android:id="@+id/action_menuFragment_to_examinationFragment"
-            app:destination="@id/examinationFragment" />
+            app:destination="@id/examinationFragment"
+            app:popUpTo="@id/dashboardFragment"/>
         <action
             android:id="@+id/action_menuFragment_to_feeDetailsFragment"
-            app:destination="@id/feeDetailsFragment" />
+            app:destination="@id/feeDetailsFragment"
+            app:popUpTo="@id/dashboardFragment"/>
         <action
             android:id="@+id/action_menuFragment_to_calendarFragment"
-            app:destination="@id/calendarFragment" />
+            app:destination="@id/calendarFragment"
+            app:popUpTo="@id/dashboardFragment"/>
+        <action
+            android:id="@+id/action_menuFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"/>
+        <action
+            android:id="@+id/action_menuFragment_to_homeworkFragment"
+            app:destination="@id/homeworkFragment"
+            app:popUpTo="@id/dashboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/attendanceFragment"
@@ -69,11 +84,16 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="ma.n1akai.edusync.ui.home.profile.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/reportCardsFragment"
         android:name="ma.n1akai.edusync.ui.home.reportcards.ReportCardsFragment"
         android:label="fragment_report_cards"
         tools:layout="@layout/fragment_report_cards" />
+    <fragment
+        android:id="@+id/homeworkFragment"
+        android:name="ma.n1akai.edusync.ui.home.homework.HomeworkFragment"
+        android:label="fragment_homework"
+        tools:layout="@layout/fragment_homework" />
 </navigation>
