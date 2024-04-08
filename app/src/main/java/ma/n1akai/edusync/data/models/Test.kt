@@ -1,6 +1,6 @@
 package ma.n1akai.edusync.data.models
 
-data class Test(
+class Test (
     val test_id: String,
     val test_code: String,
     val mark: Double,

@@ -5,8 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ma.n1akai.edusync.data.models.Homework
-import ma.n1akai.edusync.data.models.Test
+import kotlinx.coroutines.async
+import ma.n1akai.edusync.R
+import ma.n1akai.edusync.data.models.Title
 import ma.n1akai.edusync.data.repository.StudentRepository
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.safeLaunch
@@ -17,29 +18,47 @@ class DashboardViewModel @Inject constructor(
     private val studentRepository: StudentRepository
 ) : ViewModel() {
 
-    private val _tests = MutableLiveData<UiState<List<Test>>>()
-    val tests: LiveData<UiState<List<Test>>>
-        get() = _tests
+    private val _dashboardListItemsData =
+        MutableLiveData<UiState<List<Any>>>()
+    val dashboardListItemsData: LiveData<UiState<List<Any>>>
+        get() = _dashboardListItemsData
 
-    private val _homeworks = MutableLiveData<UiState<List<Homework>>>()
-    val homeworks: LiveData<UiState<List<Homework>>>
-        get() = _homeworks
-
-    fun getTests() {
-        viewModelScope.safeLaunch({
-            _tests.value = UiState.Loading
-            _tests.value = studentRepository.getTests()
-        }) { onError ->
-            _tests.value = UiState.Failure(onError)
-        }
+    init {
+        getDashboardListItems()
     }
 
-    fun getHomeworks() {
+    private fun getDashboardListItems() {
         viewModelScope.safeLaunch({
-            _homeworks.value = UiState.Loading
-            _homeworks.value = studentRepository.getHomeworks()
-        }) { onError ->
-            _homeworks.value = UiState.Failure(onError)
+            _dashboardListItemsData.postValue(UiState.Loading)
+            val testDiffered = async { studentRepository.getTests() }
+            val homeworksDiffered = async { studentRepository.getHomeworks() }
+
+            val test = testDiffered.await()
+            val homeworks = homeworksDiffered.await()
+
+            val dashboardList = mutableListOf<Any>()
+            if (test is UiState.Success && homeworks is UiState.Success) {
+                dashboardList.add(
+                    Title(
+                        "Latest Tests",
+                        R.drawable.ic_calendar_check
+                    )
+                )
+                dashboardList.addAll(test.data)
+                dashboardList.add(
+                    Title(
+                        "Homeworks",
+                        R.drawable.ic_pencil
+                    )
+
+                )
+                dashboardList.addAll(homeworks.data)
+                _dashboardListItemsData.postValue(UiState.Success(dashboardList))
+            } else {
+                _dashboardListItemsData.postValue(UiState.Failure("Something went wrong!"))
+            }
+        }) {
+            _dashboardListItemsData.postValue(UiState.Failure(it))
         }
     }
 

@@ -1,7 +1,5 @@
 package ma.n1akai.edusync.data.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import ma.n1akai.edusync.data.models.Homework
 import ma.n1akai.edusync.data.models.Student
 import ma.n1akai.edusync.data.models.Test
@@ -15,8 +13,7 @@ class StudentRepository(
 ) : SafeApiRequest() {
 
 
-
-    suspend fun getStudent( result: (UiState<Student>) -> Unit ) {
+    suspend fun getStudent(result: (UiState<Student>) -> Unit) {
         val student = apiRequest {
             api.getStudent()
         }

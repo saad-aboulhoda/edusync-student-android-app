@@ -5,7 +5,6 @@ import ma.n1akai.edusync.data.models.Student
 import ma.n1akai.edusync.data.models.Test
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface StudentApi {
 

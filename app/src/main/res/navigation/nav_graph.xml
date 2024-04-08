@@ -94,6 +94,6 @@
     <fragment
         android:id="@+id/homeworkFragment"
         android:name="ma.n1akai.edusync.ui.home.homework.HomeworkFragment"
-        android:label="fragment_homework"
+        android:label="@string/homeworks"
         tools:layout="@layout/fragment_homework" />
 </navigation>
