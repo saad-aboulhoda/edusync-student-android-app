@@ -40,3 +40,11 @@ fun formatToRelativeTime(date: String) : String {
     }
 
 }
+
+fun monthName(month: Int): String {
+    val cal = Calendar.getInstance()
+    val month_date = SimpleDateFormat("MMMM")
+    cal[Calendar.MONTH] = month
+    val month_name = month_date.format(cal.time)
+    return month_name.uppercase().substring(0, 3)
+}

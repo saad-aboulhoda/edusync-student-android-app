@@ -1,5 +1,6 @@
 package ma.n1akai.edusync.data.network
 
+import ma.n1akai.edusync.data.models.Attendance
 import ma.n1akai.edusync.data.models.Homework
 import ma.n1akai.edusync.data.models.Student
 import ma.n1akai.edusync.data.models.Test
@@ -16,5 +17,8 @@ interface StudentApi {
 
     @GET("/student/homeworks")
     suspend fun getHomeworks(): List<Homework>
+
+    @GET("/student/attendances")
+    suspend fun getAttendances(): List<Attendance>
 
 }

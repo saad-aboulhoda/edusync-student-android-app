@@ -100,7 +100,7 @@
     <fragment
         android:id="@+id/attendanceFragment"
         android:name="ma.n1akai.edusync.ui.home.attendance.AttendanceFragment"
-        android:label="fragment_attendance"
+        android:label="@string/attendance"
         tools:layout="@layout/fragment_attendance" />
     <fragment
         android:id="@+id/calendarFragment"

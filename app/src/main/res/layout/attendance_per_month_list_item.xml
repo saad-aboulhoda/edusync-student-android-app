@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -42,7 +43,7 @@
         app:layout_constraintTop_toTopOf="@+id/constraintLayout2">
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/total_present"
             style="@style/App_MediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,8 +61,8 @@
             android:textColor="#36C17D"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"
-            tools:text="@string/present" />
+            app:layout_constraintTop_toBottomOf="@+id/total_present"
+            android:text="@string/present" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -79,7 +80,7 @@
         app:layout_constraintTop_toTopOf="@+id/constraintLayout2">
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/total_absent"
             style="@style/App_MediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,8 +98,8 @@
             android:textColor="#FD4E77"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"
-            tools:text="@string/absent" />
+            app:layout_constraintTop_toBottomOf="@+id/total_absent"
+            android:text="@string/absent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -115,7 +116,7 @@
         app:layout_constraintTop_toTopOf="@+id/constraintLayout2">
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/total_leave"
             style="@style/App_MediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,8 +134,8 @@
             android:textColor="#524D9F"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
-            tools:text="@string/leave" />
+            app:layout_constraintTop_toBottomOf="@+id/total_leave"
+            android:text="@string/leave" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
