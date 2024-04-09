@@ -47,13 +47,8 @@
             app:subtitleTextColor="@color/light_grey"
             app:titleTextColor="@color/white">
 
-            <!--<ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:src="@drawable/ic_bento_menu" /> -->
-
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/home_iv_profile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="end"

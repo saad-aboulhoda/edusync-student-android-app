@@ -12,48 +12,89 @@
         tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="ma.n1akai.edusync.ui.home.menu.MenuFragment"
         android:label="Menu"
+        app:destination="@id/menuFragment"
         tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_multimediaFragment"
             app:destination="@id/multimediaFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_reportCardsFragment"
             app:destination="@id/reportCardsFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_profileFragment"
             app:destination="@id/profileFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_attendanceFragment"
             app:destination="@id/attendanceFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_examinationFragment"
             app:destination="@id/examinationFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_feeDetailsFragment"
             app:destination="@id/feeDetailsFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_calendarFragment"
             app:destination="@id/calendarFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
-            app:popUpTo="@id/dashboardFragment"/>
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
         <action
             android:id="@+id/action_menuFragment_to_homeworkFragment"
             app:destination="@id/homeworkFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/dashboardFragment" />
     </fragment>
     <fragment
@@ -96,4 +137,11 @@
         android:name="ma.n1akai.edusync.ui.home.homework.HomeworkFragment"
         android:label="@string/homeworks"
         tools:layout="@layout/fragment_homework" />
+    <action
+        android:id="@+id/action_global_profileFragment"
+        app:destination="@id/profileFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
 </navigation>

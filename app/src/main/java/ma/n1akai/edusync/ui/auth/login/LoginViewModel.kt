@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import ma.n1akai.edusync.data.network.responses.AuthResponse
 import ma.n1akai.edusync.data.repository.AuthRepository
 import ma.n1akai.edusync.util.ApiException
 import ma.n1akai.edusync.util.NoInternetException
@@ -17,23 +18,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repository: AuthRepository,
-    private val tokenManager: TokenManager
+    private val repository: AuthRepository
 ) : ViewModel() {
 
-    private val _login = MutableLiveData<UiState<String>>();
-    val login: LiveData<UiState<String>>
+    private val _login = MutableLiveData<UiState<AuthResponse>>();
+    val login: LiveData<UiState<AuthResponse>>
         get() = _login
 
     fun login(email: String, password: String) {
         viewModelScope.safeLaunch({
             _login.value = UiState.Loading
-            repository.login(email, password) {
-                _login.value = it
-                if (it is UiState.Success) {
-                    tokenManager.saveToken(it.data)
-                }
-            }
+            _login.value = repository.login(email, password)
         }) {
             _login.value = UiState.Failure(it)
         }

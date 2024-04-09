@@ -16,20 +16,20 @@ interface AuthApi {
     suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String
-    ) : Response<AuthResponse>
+    ) : AuthResponse
 
     @FormUrlEncoded
     @POST("forget-password/student")
     suspend fun forgetPassword(
         @Field("email") email: String
-    ) : Response<ForgetPasswordResponse>
+    ) : ForgetPasswordResponse
 
     @FormUrlEncoded
     @POST("/very-otp/student")
     suspend fun verifyOtp(
         @Field("email") email: String,
         @Field("otp") otp: String
-    ) : Response<ForgetPasswordResponse>
+    ) : ForgetPasswordResponse
 
     @FormUrlEncoded
     @POST("/change-password/student")
@@ -37,7 +37,7 @@ interface AuthApi {
         @Field("email") email: String,
         @Field("otp") otp: String,
         @Field("password") password: String
-    ) : Response<ForgetPasswordResponse>
+    ) : ForgetPasswordResponse
 
 
 }

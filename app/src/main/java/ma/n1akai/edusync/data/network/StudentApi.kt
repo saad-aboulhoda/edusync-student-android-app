@@ -9,12 +9,12 @@ import retrofit2.http.GET
 interface StudentApi {
 
     @GET("/student/show")
-    suspend fun getStudent(): Response<Student>
+    suspend fun getStudent(): Student
 
     @GET("/student/tests")
-    suspend fun getTests(): Response<List<Test>>
+    suspend fun getTests(): List<Test>
 
     @GET("/student/homeworks")
-    suspend fun getHomeworks(): Response<List<Homework>>
+    suspend fun getHomeworks(): List<Homework>
 
 }

@@ -8,8 +8,7 @@ fun stringToDate(date: String): Date? {
 
     val formater = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
     try {
-        val date = formater.parse(date)
-        return date
+        return formater.parse(date)
     } catch (e: Exception) {
         println("Error parsing date time string: $e")
     }
@@ -24,7 +23,7 @@ fun formatToRelativeTime(date: String) : String {
     if (theDate == null)
         return "Unknown date"
 
-    val diffInMs = now.time - theDate!!.time
+    val diffInMs = now.time - theDate.time
     val diffInMin = diffInMs / 60000
     val diffInHour = diffInMin / 60
     val diffInDay = diffInHour / 24

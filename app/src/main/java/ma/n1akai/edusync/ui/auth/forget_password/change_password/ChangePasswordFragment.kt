@@ -93,7 +93,7 @@ class ChangePasswordFragment : Fragment() {
                         snackbar("Password changed successfully, you can login now")
                         findNavController()
                             .navigate(ChangePasswordFragmentDirections
-                                .actionGlobalLoginFragment())
+                                .actionChangePasswordFragmentToLoginFragment())
                     }
                     is UiState.Failure -> {
                         hideProgress()

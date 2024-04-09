@@ -22,9 +22,7 @@ class ProfileViewModel @Inject constructor(
     fun getStudent() {
         viewModelScope.safeLaunch({
             _student.value = UiState.Loading
-            studentRepository.getStudent {
-                _student.value = it
-            }
+            _student.value = studentRepository.getStudent()
         }) { error ->
             _student.value = UiState.Failure(error)
         }

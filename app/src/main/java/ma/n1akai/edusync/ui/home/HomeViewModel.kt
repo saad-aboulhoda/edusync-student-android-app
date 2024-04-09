@@ -26,9 +26,7 @@ class HomeViewModel @Inject constructor(
     fun getStudent() {
         viewModelScope.safeLaunch({
             _student.value = UiState.Loading
-            repository.getStudent {
-                _student.value = it
-            }
+            _student.value = repository.getStudent()
         }) { onError ->
             _student.value = UiState.Failure(onError)
         }

@@ -18,6 +18,7 @@ import ma.n1akai.edusync.R
 import ma.n1akai.edusync.data.models.Student
 import ma.n1akai.edusync.databinding.ActivityHomeBinding
 import ma.n1akai.edusync.ui.auth.AuthActivity
+import ma.n1akai.edusync.ui.home.dashboard.DashboardFragmentDirections
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.hide
 import ma.n1akai.edusync.util.safeLaunch
@@ -43,6 +44,7 @@ class HomeActivity : AppCompatActivity() {
         destinationUi()
         getStudent()
         observer()
+        goToProfile()
     }
 
     private fun setUpNavController() {
@@ -82,21 +84,32 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun destinationUi() {
+    private fun destinationUi() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val id = destination.id
             when(id) {
-                R.id.menuFragment -> {
+                R.id.menuFragment-> {
                     binding.toolbar.apply {
                         setLogo(null)
                         setSubtitle(null)
                         setTitle(null)
                         setNavigationIcon(R.drawable.ic_close)
+                        binding.homeIvProfile.show()
+                    }
+                }
+                R.id.profileFragment -> {
+                    binding.toolbar.apply {
+                        setLogo(null)
+                        setSubtitle(null)
+                        binding.homeIvProfile.hide()
                     }
                 }
                 R.id.dashboardFragment -> {
                     setUpToolbarTitleSubTitleLogo()
+                    binding.homeIvProfile.show()
                 }
+
+                else -> binding.homeIvProfile.show()
             }
         }
     }
@@ -114,6 +127,13 @@ class HomeActivity : AppCompatActivity() {
                         .navigate(R.id.action_dashboardFragment_to_menuFragment)
                 }
             }
+        }
+    }
+
+    private fun goToProfile() {
+        binding.homeIvProfile.setOnClickListener {
+            navController
+                .navigate(R.id.action_global_profileFragment)
         }
     }
 }

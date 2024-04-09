@@ -14,13 +14,18 @@ import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.databinding.FragmentLoginBinding
 import ma.n1akai.edusync.ui.home.HomeActivity
+import ma.n1akai.edusync.util.TokenManager
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.isValidEmail
 import ma.n1akai.edusync.util.navigate
 import ma.n1akai.edusync.util.snackbar
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
+
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     private val viewModel: LoginViewModel by viewModels()
     private var _binding: FragmentLoginBinding? = null
@@ -87,8 +92,15 @@ class LoginFragment : Fragment() {
                 }
                 is UiState.Success -> {
                     binding.loginButtonLogin.hideProgress()
+
+                    binding.root.snackbar(it.data.message!!)
+
+                    // Save Token
+                    tokenManager.saveToken(it.data.token!!)
+
                     startActivity(Intent(requireActivity(), HomeActivity::class.java))
                     requireActivity().finish()
+
                 }
                 is UiState.Failure -> {
                     binding.loginButtonLogin.hideProgress()

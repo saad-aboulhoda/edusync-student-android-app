@@ -22,10 +22,10 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var intent: Intent? = null
-        if (!tokenManager.getToken().isNullOrBlank()) {
-            intent = Intent(this, HomeActivity::class.java)
+        intent = if (!tokenManager.getToken().isNullOrBlank()) {
+            Intent(this, HomeActivity::class.java)
         } else {
-            intent = Intent(this, AuthActivity::class.java)
+            Intent(this, AuthActivity::class.java)
         }
         startActivity(intent)
         finish()
