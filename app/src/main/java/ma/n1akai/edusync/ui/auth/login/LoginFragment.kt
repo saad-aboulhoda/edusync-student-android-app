@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.databinding.FragmentLoginBinding
+import ma.n1akai.edusync.ui.BaseFragment
 import ma.n1akai.edusync.ui.home.HomeActivity
 import ma.n1akai.edusync.util.TokenManager
 import ma.n1akai.edusync.util.UiState
@@ -22,24 +23,18 @@ import ma.n1akai.edusync.util.snackbar
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     @Inject
     lateinit var tokenManager: TokenManager
 
     private val viewModel: LoginViewModel by viewModels()
-    private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
     private var email: String? = null
     private var password: String? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun provideBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentLoginBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -110,8 +105,4 @@ class LoginFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

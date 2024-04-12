@@ -6,26 +6,65 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
+import ma.n1akai.edusync.data.models.TestOnline
+import ma.n1akai.edusync.databinding.FragmentExaminationBinding
+import ma.n1akai.edusync.ui.BaseFragment
+import ma.n1akai.edusync.ui.home.feedetails.FeeAdapter
+import ma.n1akai.edusync.util.UiState
+import ma.n1akai.edusync.util.snackbar
 
-class ExaminationFragment : Fragment() {
+@AndroidEntryPoint
+class ExaminationFragment : BaseFragment<FragmentExaminationBinding>() {
 
-    companion object {
-        fun newInstance() = ExaminationFragment()
-    }
 
     private val viewModel: ExaminationViewModel by viewModels()
+    private val examinationAdapter = ExaminationAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        examinationAdapter.listener = object : ExaminationAdapter.OnStartTestClickListener {
+            override fun onStartTestClick(testOnline: TestOnline, view: View) {
+                findNavController()
+                    .navigate(
+                        ExaminationFragmentDirections.actionExaminationFragmentToExamFragment(
+                            testOnline, testOnline.test_online_name
+                        )
+                    )
+            }
+
+        }
+
+        binding.examinationRcExams.apply {
+            adapter = examinationAdapter
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(requireActivity())
+        }
+        viewModel.tests.observe(viewLifecycleOwner) {
+            when (it) {
+                is UiState.Failure -> {
+                    binding.examProgress.hide()
+                    binding.root.snackbar(it.error!!)
+                }
+
+                UiState.Loading -> binding.examProgress.show()
+                is UiState.Success -> {
+                    binding.examProgress.hide()
+                    examinationAdapter.items = it.data
+                }
+            }
+        }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_examination, container, false)
-    }
+
+    override fun provideBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentExaminationBinding.inflate(inflater, container, false)
+
+
 }

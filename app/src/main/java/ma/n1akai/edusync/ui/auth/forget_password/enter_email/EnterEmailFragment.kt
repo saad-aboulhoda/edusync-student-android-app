@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.databinding.FragmentEnterEmailBinding
+import ma.n1akai.edusync.ui.BaseFragment
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.isValidEmail
 import ma.n1akai.edusync.util.navigate
@@ -18,19 +19,15 @@ import ma.n1akai.edusync.util.popBackStack
 import ma.n1akai.edusync.util.snackbar
 
 @AndroidEntryPoint
-class EnterEmailFragment : Fragment() {
+class EnterEmailFragment : BaseFragment<FragmentEnterEmailBinding>() {
 
     private val viewModel: EnterEmailViewModel by viewModels()
-    private var _binding: FragmentEnterEmailBinding? = null
-    private val binding: FragmentEnterEmailBinding get() = _binding!!
     private var email: String? = null
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentEnterEmailBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+
+    override fun provideBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentEnterEmailBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -90,8 +87,4 @@ class EnterEmailFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

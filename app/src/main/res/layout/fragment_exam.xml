@@ -4,35 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
     tools:context=".ui.home.examination.exam.ExamFragment">
 
-    <TextView
-        android:id="@+id/textView15"
-        style="@style/App_MediumText"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout8"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/md_theme_light_primary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Exam Code: 121" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        style="@style/App_MediumText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawablePadding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="30 Min"
-        app:drawableStartCompat="@drawable/ic_clock" />
+        <TextView
+            android:id="@+id/exam_tv_course"
+            style="@style/App_MediumText"
+            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            tools:text="Bases du développement android"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/exam_tv_duration"
+            style="@style/App_MediumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:drawablePadding="8dp"
+            android:text="30 Min"
+            app:drawableStartCompat="@drawable/ic_clock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/exam_rc_questions"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp"
-        tools:listitem="@layout/questions_list_item"
+        android:layout_height="0dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8"
+        app:layout_constraintBottom_toTopOf="@+id/exam_btn_submit"
+        tools:listitem="@layout/questions_list_item" />
+
+    <Button
+        android:id="@+id/exam_btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/submit" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/exam_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/exam_rc_questions" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

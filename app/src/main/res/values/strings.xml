@@ -49,6 +49,20 @@
     <string name="mothers_name">Mother\'s name</string>
     <string name="ask_for_update">Ask for Update</string>
 
+    <!-- Home - FeeFragment -->
+    <string name="paid">Paid</string>
+    <string name="unpaid">Unpaid</string>
+    <string name="total_fee">%1$s DH</string>
+
+    <!-- Home - ExaminationFragment -->
+    <string name="duration">Duration: %1$s</string>
+    <string name="score">Score: %1$d/100</string>
+    <string name="start_test">Start Test</string>
+    <string name="completed">Completed</string>
+
+    <!-- Home - ExamFragment -->
+    <string name="question_num">Question %1$s:</string>
+
     <!-- Home - AttendanceFragment -->
     <string name="present">Present</string>
     <string name="absent">Absent</string>

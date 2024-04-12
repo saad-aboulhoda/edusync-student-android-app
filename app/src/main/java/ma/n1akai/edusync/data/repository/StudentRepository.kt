@@ -17,4 +17,7 @@ class StudentRepository(
     suspend fun getTests() = safeApiCall { api.getTests() }
     suspend fun getHomeworks() = safeApiCall { api.getHomeworks() }
     suspend fun getAttendances() = safeApiCall { api.getAttendances() }
+    suspend fun getFees() = safeApiCall { api.getFees() }
+    suspend fun getTestsOnline() = safeApiCall { api.getTestsOnline() }
+    suspend fun getQuestions(id: Int) = safeApiCall { api.getQuestions(id) }
 }

@@ -10,30 +10,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.databinding.FragmentHomeworkBinding
+import ma.n1akai.edusync.ui.BaseFragment
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.snackbar
 
 @AndroidEntryPoint
-class HomeworkFragment : Fragment() {
-
-    private var _binding: FragmentHomeworkBinding? = null
-    private val binding: FragmentHomeworkBinding get() = _binding!!
+class HomeworkFragment : BaseFragment<FragmentHomeworkBinding>() {
 
     private val viewModel: HomeworkViewModel by viewModels()
     private val homeworksAdapter = HomeworkAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHomeworkBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun provideBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentHomeworkBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,8 +50,4 @@ class HomeworkFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

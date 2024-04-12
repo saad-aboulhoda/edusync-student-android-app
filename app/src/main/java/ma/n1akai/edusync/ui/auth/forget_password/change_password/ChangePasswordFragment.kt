@@ -11,28 +11,24 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.databinding.FragmentChangePasswordBinding
+import ma.n1akai.edusync.ui.BaseFragment
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.popBackStack
 import ma.n1akai.edusync.util.snackbar
 
 @AndroidEntryPoint
-class ChangePasswordFragment : Fragment() {
+class ChangePasswordFragment : BaseFragment<FragmentChangePasswordBinding>() {
 
     private val viewModel: ChangePasswordViewModel by viewModels()
-    private var _binding: FragmentChangePasswordBinding? = null
-    private val binding: FragmentChangePasswordBinding get() = _binding!!
     private var email: String? = null
     private var otp: String? = null
     private lateinit var newPassword: String
     private lateinit var confirmNewPassword: String
+    override fun provideBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentChangePasswordBinding.inflate(inflater, container, false)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentChangePasswordBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -102,10 +98,5 @@ class ChangePasswordFragment : Fragment() {
                 }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

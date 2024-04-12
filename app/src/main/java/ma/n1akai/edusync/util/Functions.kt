@@ -4,9 +4,15 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 
-fun stringToDate(date: String): Date? {
+fun stringToDate(date: String, customFormat: String = ""): Date? {
 
-    val formater = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+    var format = ""
+    if (customFormat.isBlank()) {
+        format = "yyyy-MM-dd HH:mm:ss"
+    } else {
+        format = customFormat
+    }
+    val formater = SimpleDateFormat(format)
     try {
         return formater.parse(date)
     } catch (e: Exception) {

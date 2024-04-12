@@ -11,29 +11,20 @@ import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.data.models.Attendance
 import ma.n1akai.edusync.databinding.FragmentAttendanceBinding
+import ma.n1akai.edusync.ui.BaseFragment
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.snackbar
 
 @AndroidEntryPoint
-class AttendanceFragment : Fragment() {
+class AttendanceFragment : BaseFragment<FragmentAttendanceBinding>() {
 
     private val viewModel: AttendanceViewModel by viewModels()
-    private var _binding: FragmentAttendanceBinding? = null
-    private val binding: FragmentAttendanceBinding get() = _binding!!
     private val attendanceAdapter: AttendanceAdapter = AttendanceAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAttendanceBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun provideBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentAttendanceBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,10 +48,5 @@ class AttendanceFragment : Fragment() {
                 }
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

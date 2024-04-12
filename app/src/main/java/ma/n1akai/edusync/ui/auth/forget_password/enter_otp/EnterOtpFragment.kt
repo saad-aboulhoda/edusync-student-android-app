@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.databinding.FragmentEnterEmailBinding
 import ma.n1akai.edusync.databinding.FragmentEnterOtpBinding
+import ma.n1akai.edusync.ui.BaseFragment
 import ma.n1akai.edusync.ui.auth.forget_password.enter_email.EnterEmailFragmentDirections
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.navigate
@@ -19,21 +20,16 @@ import ma.n1akai.edusync.util.popBackStack
 import ma.n1akai.edusync.util.snackbar
 
 @AndroidEntryPoint
-class EnterOtpFragment : Fragment() {
+class EnterOtpFragment : BaseFragment<FragmentEnterOtpBinding>() {
 
     private val viewModel: EnterOtpViewModel by viewModels()
-    private var _binding: FragmentEnterOtpBinding? = null
-    private val binding get() = _binding!!
     private var email: String? = null
     private var otp: String? = null
+    override fun provideBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentEnterOtpBinding.inflate(inflater, container, false)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentEnterOtpBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -75,8 +71,4 @@ class EnterOtpFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }
