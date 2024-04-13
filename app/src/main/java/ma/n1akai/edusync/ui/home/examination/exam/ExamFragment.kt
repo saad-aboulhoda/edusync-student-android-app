@@ -25,6 +25,7 @@ class ExamFragment : BaseFragment<FragmentExamBinding>() {
     private val viewModel: ExamViewModel by viewModels()
     private val examAdapter = ExamAdapter()
     private lateinit var testOnline: TestOnline
+    private lateinit var countDownTimer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,12 +67,16 @@ class ExamFragment : BaseFragment<FragmentExamBinding>() {
                 }
             }
         }
+
+        binding.examBtnSubmit.setOnClickListener {
+            submit()
+        }
     }
 
     private fun startTimer() {
         val formater = SimpleDateFormat("HH:mm:ss")
         val date = formater.parse(testOnline.duration)
-        object : CountDownTimer(date!!.time, 1000) {
+        countDownTimer = object : CountDownTimer(date!!.time, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 binding.examTvDuration.text = formater.format(millisUntilFinished)
             }
@@ -84,7 +89,19 @@ class ExamFragment : BaseFragment<FragmentExamBinding>() {
     }
 
     private fun submit() {
+        viewModel.submitTest(testOnline.test_online_id, examAdapter.data)
+        viewModel.submission.observe(viewLifecycleOwner) {
+            when(it) {
+                is UiState.Failure -> binding.root.snackbar(it.error!!)
+                UiState.Loading -> binding.root.snackbar("Loading")
+                is UiState.Success -> binding.root.snackbar(it.data.message)
+            }
+        }
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        countDownTimer.cancel()
     }
 
     override fun provideBinding(

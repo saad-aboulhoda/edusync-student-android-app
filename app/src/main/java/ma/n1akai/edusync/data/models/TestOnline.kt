@@ -7,6 +7,6 @@ data class TestOnline (
     val test_online_name: String,
     val class_id: Int,
     val duration: String,
-    val score: Int,
+    val score: Double,
     val course_name: String
 ) : Serializable

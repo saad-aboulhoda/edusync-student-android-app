@@ -56,7 +56,7 @@
 
     <!-- Home - ExaminationFragment -->
     <string name="duration">Duration: %1$s</string>
-    <string name="score">Score: %1$d/100</string>
+    <string name="score">Score: %1$s/100</string>
     <string name="start_test">Start Test</string>
     <string name="completed">Completed</string>
 

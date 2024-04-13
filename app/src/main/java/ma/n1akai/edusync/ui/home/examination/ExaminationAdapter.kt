@@ -44,7 +44,7 @@ class ExaminationAdapter : RecyclerView.Adapter<ExaminationAdapter.ExaminationVi
                         examTvStartTest.hide()
                         examTvScore.show()
                         examTvCompleted.show()
-                        examTvScore.text = context.getString(R.string.score, testOnline.score)
+                        examTvScore.text = context.getString(R.string.score, testOnline.score.toString())
                     } else {
                         examTvStartTest.show()
                         examTvScore.hide()

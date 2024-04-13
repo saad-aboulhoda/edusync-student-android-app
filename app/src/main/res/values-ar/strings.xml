@@ -57,7 +57,7 @@
 
     <!-- Home - ExaminationFragment -->
     <string name="duration">مدة: %1$s</string>
-    <string name="score">نتيجة: %1$d/100</string>
+    <string name="score">نتيجة: %1$s/100</string>
     <string name="start_test">بدء الاختبار</string>
     <string name="completed">Completed</string>
 

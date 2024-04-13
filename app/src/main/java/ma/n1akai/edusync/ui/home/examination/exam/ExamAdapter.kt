@@ -18,6 +18,7 @@ class ExamAdapter : RecyclerView.Adapter<ExamAdapter.ExamViewHolder>() {
             field = value
             notifyDataSetChanged()
         }
+    var data = mutableMapOf<String, Int>()
 
     inner class ExamViewHolder(
         private val binding: QuestionsListItemBinding
@@ -27,10 +28,22 @@ class ExamAdapter : RecyclerView.Adapter<ExamAdapter.ExamViewHolder>() {
                 val indexAndMark = "${index} (${testQuestion.mark})"
                 tvQuestionTitle.text = context.getString(R.string.question_num, indexAndMark)
                 tvQuestion.text = testQuestion.question
+
                 radiogroupQuestions.removeAllViews()
+
                 testQuestion.answers.forEach {
                     val radioBtn = RadioButton(context)
-                    radioBtn.text = it
+                    radioBtn.text = it.answer
+
+                    if (data[testQuestion.question_id.toString()] == it.answer_id) {
+                        radioBtn.isChecked = true
+                    }
+
+                    radioBtn.setOnCheckedChangeListener { buttonView, isChecked ->
+                        if (isChecked) {
+                            data[testQuestion.question_id.toString()] = it.answer_id
+                        }
+                    }
                     radiogroupQuestions.addView(radioBtn)
                 }
             }
