@@ -34,7 +34,6 @@ class ExamFragment : BaseFragment<FragmentExamBinding>() {
     private val examAdapter = ExamAdapter()
     private lateinit var testOnline: TestOnline
     private lateinit var countDownTimer: CountDownTimer
-    private lateinit var toolbar: MaterialToolbar
     private var time: Long = 0
 
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
@@ -52,7 +51,6 @@ class ExamFragment : BaseFragment<FragmentExamBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setUpToolbar()
         activity?.onBackPressedDispatcher?.addCallback(this, onBackPressedCallback)
 
         getTestOnline()
@@ -125,13 +123,6 @@ class ExamFragment : BaseFragment<FragmentExamBinding>() {
         }
     }
 
-    private fun setUpToolbar() {
-        toolbar = requireActivity().findViewById<MaterialToolbar>(R.id.toolbar)
-        toolbar.setNavigationOnClickListener {
-            onBackPressedCallback.handleOnBackPressed()
-        }
-    }
-
     private fun submit() {
         viewModel.submitTest(testOnline.test_online_id, examAdapter.data)
         viewModel.submission.observe(viewLifecycleOwner) {
@@ -171,7 +162,6 @@ class ExamFragment : BaseFragment<FragmentExamBinding>() {
         super.onDestroy()
         countDownTimer.cancel()
         onBackPressedCallback.remove()
-        toolbar.setNavigationOnClickListener(null)
     }
 
     override fun provideBinding(

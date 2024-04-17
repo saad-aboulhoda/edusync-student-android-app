@@ -20,8 +20,8 @@ class RetrofitInstance(
 ) {
 
     companion object {
-        const val BASE_URL = "http://10.0.2.2/"
-        /*const val BASE_URL = "http://192.168.11.103/"*/
+        /*const val BASE_URL = "http://10.0.2.2/"*/
+        const val BASE_URL = "https://edusync.freewebhostmost.com/"
     }
 
     fun <T> buildApi(
