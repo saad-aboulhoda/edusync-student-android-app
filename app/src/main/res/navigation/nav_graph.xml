@@ -114,7 +114,8 @@
         tools:layout="@layout/fragment_examination" >
         <action
             android:id="@+id/action_examinationFragment_to_examFragment"
-            app:destination="@id/examFragment" />
+            app:destination="@id/examFragment"
+            app:popUpTo="@id/examinationFragment" />
     </fragment>
     <fragment
         android:id="@+id/feeDetailsFragment"
@@ -152,12 +153,23 @@
         android:id="@+id/examFragment"
         android:name="ma.n1akai.edusync.ui.home.examination.exam.ExamFragment"
         android:label="{testTitle}"
-        tools:layout="@layout/fragment_exam">
+        tools:layout="@layout/fragment_exam"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right">
         <argument
             android:name="testOnline"
             app:argType="ma.n1akai.edusync.data.models.TestOnline" />
         <argument
             android:name="testTitle"
             app:argType="string" />
+        <action
+            android:id="@+id/action_examFragment_to_examinationFragment"
+            app:destination="@id/examinationFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 </navigation>

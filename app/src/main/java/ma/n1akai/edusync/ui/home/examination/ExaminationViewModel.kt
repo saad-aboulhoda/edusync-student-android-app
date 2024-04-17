@@ -21,10 +21,6 @@ class ExaminationViewModel @Inject constructor(
     private val _tests = MutableLiveData<UiState<List<Any>>>()
     val tests: LiveData<UiState<List<Any>>> get() = _tests
 
-    init {
-        getTestsOnline()
-    }
-
     fun getTestsOnline() {
         viewModelScope.safeLaunch({
             _tests.value = UiState.Loading
