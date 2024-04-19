@@ -35,6 +35,7 @@ class AttendanceViewModel @Inject constructor(
                 val map = absents.data.groupBy {
                     it.date
                 }
+
                 map.keys.forEach {
                     list.add(Title(it, R.drawable.ic_calendar_blank))
                     list.addAll(map[it]!!)

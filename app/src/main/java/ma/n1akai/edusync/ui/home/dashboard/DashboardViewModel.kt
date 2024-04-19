@@ -67,7 +67,12 @@ class DashboardViewModel @Inject constructor(
                         R.drawable.ic_calendar_check
                     )
                 )
-                dashboardList.addAll(test.data.subList(0, 4))
+                if (test.data.size > 4) {
+                    dashboardList.addAll(test.data.subList(0, 4))
+                } else {
+                    dashboardList.addAll(test.data)
+                }
+
                 dashboardList.add(
                     Title(
                         "Homeworks",
@@ -75,7 +80,12 @@ class DashboardViewModel @Inject constructor(
                     )
 
                 )
-                dashboardList.addAll(homeworks.data.subList(0, 8))
+
+                if (homeworks.data.size > 4) {
+                    dashboardList.addAll(homeworks.data.subList(0, 8))
+                } else {
+                    dashboardList.addAll(homeworks.data)
+                }
                 _dashboardListItemsData.postValue(UiState.Success(dashboardList))
             } else if (test is UiState.Failure) {
                 _dashboardListItemsData.postValue(UiState.Failure(test.error))

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.data.models.Homework
@@ -30,7 +31,6 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setUpRecyclerView()
         checkAndUnCheckOListener()
 
@@ -57,7 +57,9 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     private fun homeworksObserver() {
         viewModel.dashboardListItemsData.observe(this) {
             when (it) {
-                is UiState.Loading -> binding.dashboardProgress.show()
+                is UiState.Loading -> {
+                    binding.dashboardProgress.show()
+                }
 
                 is UiState.Success -> {
                     binding.dashboardProgress.hide()

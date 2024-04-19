@@ -23,19 +23,24 @@ class HomeworkFragment : BaseFragment<FragmentHomeworkBinding>() {
     private val viewModel: HomeworkViewModel by viewModels()
     private val dashboardViewModel: DashboardViewModel by viewModels()
     private val homeworksAdapter = HomeworkAdapter()
+    private lateinit var theHomework: Homework
 
     override fun provideBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ) = FragmentHomeworkBinding.inflate(inflater, container, false)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        checkAndUnCheckObserver()
+        dashboardObserver()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setUpRecyclerView()
         checkAndUnCheckListener()
-        checkAndUnCheckObserver()
-        dashboardObserver()
     }
 
     private fun setUpRecyclerView() {
@@ -65,17 +70,19 @@ class HomeworkFragment : BaseFragment<FragmentHomeworkBinding>() {
     }
 
     private fun checkAndUnCheckObserver() {
-        dashboardViewModel.updateHomework.observe(viewLifecycleOwner) {
+        dashboardViewModel.updateHomework.observe(this) {
             if (it is UiState.Success) {
+                theHomework.student_homework = it.data.id
                 binding.root.snackbar(it.data.message)
             } else if (it is UiState.Failure) {
+                theHomework.student_homework = -1
                 binding.root.snackbar(it.error!!)
             }
         }
     }
 
     private fun dashboardObserver() {
-        viewModel.homeworks.observe(viewLifecycleOwner) {
+        viewModel.homeworks.observe(this) {
             when (it) {
                 is UiState.Loading -> binding.homeworkProgress.show()
 

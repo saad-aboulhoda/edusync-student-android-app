@@ -34,10 +34,15 @@ class FeeDetailsFragment : BaseFragment<FragmentFeeDetailsBinding>(), SwipeRefre
          viewModel.fees.observe(viewLifecycleOwner) {
             when(it) {
                 is UiState.Failure -> {
+                    binding.feeSwipeRefresh.isRefreshing = false
                     binding.feeProgress.hide()
                     binding.root.snackbar(it.error!!)
                 }
-                UiState.Loading -> binding.feeProgress.show()
+                UiState.Loading -> {
+                    if (!binding.feeSwipeRefresh.isRefreshing) {
+                        binding.feeProgress.show()
+                    }
+                }
                 is UiState.Success -> {
                     binding.feeSwipeRefresh.isRefreshing = false
                     binding.feeProgress.hide()
