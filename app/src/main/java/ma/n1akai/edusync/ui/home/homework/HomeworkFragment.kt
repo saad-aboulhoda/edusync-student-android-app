@@ -59,6 +59,7 @@ class HomeworkFragment : BaseFragment<FragmentHomeworkBinding>() {
                 view: View,
                 checked: Boolean
             ) {
+                theHomework = homework
                 if (checked) {
                     dashboardViewModel.checkHomework(homework.homework_id)
                 } else {
