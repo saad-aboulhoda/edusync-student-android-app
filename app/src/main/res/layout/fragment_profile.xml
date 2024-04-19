@@ -43,7 +43,7 @@
             android:layout_height="120dp"
             android:elevation="10dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/akai"
+            android:src="@drawable/ic_student"
             android:textColor="@color/white"
             android:textSize="38sp"
             app:layout_constraintBottom_toBottomOf="@id/imageView"

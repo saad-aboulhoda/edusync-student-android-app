@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ma.n1akai.edusync.R
+import ma.n1akai.edusync.data.models.Absent
 import ma.n1akai.edusync.data.models.Attendance
 import ma.n1akai.edusync.data.models.Title
+import ma.n1akai.edusync.databinding.AbsentListItemBinding
 import ma.n1akai.edusync.databinding.AttendancePerMonthListItemBinding
 import ma.n1akai.edusync.databinding.TitleItemBinding
 
@@ -26,10 +28,10 @@ class AttendanceAdapter : RecyclerView.Adapter<AttendanceHolder>() {
                     )
                 )
 
-            R.layout.attendance_per_month_list_item -> {
+            R.layout.absent_list_item -> {
                 AttendanceHolder
-                    .AttendanceViewHolder(
-                        AttendancePerMonthListItemBinding.inflate(
+                    .AbsentViewHolder(
+                        AbsentListItemBinding.inflate(
                             LayoutInflater.from(parent.context), parent, false
                         )
                     )
@@ -45,7 +47,7 @@ class AttendanceAdapter : RecyclerView.Adapter<AttendanceHolder>() {
     override fun onBindViewHolder(holder: AttendanceHolder, position: Int) {
         val item = items[position]
         when(holder) {
-            is AttendanceHolder.AttendanceViewHolder -> holder.bind(item as Attendance)
+            is AttendanceHolder.AbsentViewHolder -> holder.bind(item as Absent)
             is AttendanceHolder.TitleViewHolder -> holder.bind(item as Title)
         }
     }
@@ -53,7 +55,7 @@ class AttendanceAdapter : RecyclerView.Adapter<AttendanceHolder>() {
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
             is Title -> R.layout.title_item
-            is Attendance -> R.layout.attendance_per_month_list_item
+            is Absent -> R.layout.absent_list_item
             else -> throw IllegalArgumentException("Invalid Item")
         }
     }

@@ -6,6 +6,7 @@ import ma.n1akai.edusync.data.models.Homework
 import ma.n1akai.edusync.data.models.Title
 import ma.n1akai.edusync.databinding.HomeworksListItemBinding
 import ma.n1akai.edusync.databinding.TitleItemBinding
+import ma.n1akai.edusync.ui.home.dashboard.DashboardAdapter
 import ma.n1akai.edusync.util.formatToRelativeTime
 
 sealed class HomeworkHolder(
@@ -25,13 +26,16 @@ sealed class HomeworkHolder(
 
     class HomeworkViewHolder(private val binding: HomeworksListItemBinding) :
         HomeworkHolder(binding) {
-        fun bind(hw: Homework) {
+        fun bind(hw: Homework, listener: DashboardAdapter.OnHomeworkCheckedChangedListener) {
             binding.apply {
                 homework.text = hw.homework
                 val concatCourseAndDate =
                     "${hw.course_name} - ${formatToRelativeTime(hw.created_at)}"
                 courseAndDate.text = concatCourseAndDate
                 isDone.isChecked = hw.finished == 1
+                isDone.setOnCheckedChangeListener { buttonView, isChecked ->
+                    listener.onHomeworkCheckedChanged(hw, buttonView, isChecked)
+                }
             }
         }
     }

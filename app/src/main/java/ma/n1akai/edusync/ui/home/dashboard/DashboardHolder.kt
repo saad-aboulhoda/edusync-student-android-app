@@ -47,13 +47,21 @@ sealed class DashboardHolder(
 
     class HomeworkViewHolder(private val binding: HomeworksListItemBinding) :
         DashboardHolder(binding) {
-        fun bind(hw: Homework) {
+        fun bind(hw: Homework, listener: DashboardAdapter.OnHomeworkCheckedChangedListener) {
             binding.apply {
                 homework.text = hw.homework
                 val concatCourseAndDate =
                     "${hw.course_name} - ${formatToRelativeTime(hw.created_at)}"
                 courseAndDate.text = concatCourseAndDate
                 isDone.isChecked = hw.finished == 1
+                isDone.setOnCheckedChangeListener { buttonView, isChecked ->
+                    listener.onHomeworkCheckedChanged(hw, buttonView, isChecked)
+                    if (isChecked) {
+                        hw.finished = 1
+                    } else {
+                        hw.finished = 0
+                    }
+                }
             }
         }
     }

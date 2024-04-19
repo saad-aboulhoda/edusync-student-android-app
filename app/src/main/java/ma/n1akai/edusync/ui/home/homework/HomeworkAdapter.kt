@@ -8,6 +8,7 @@ import ma.n1akai.edusync.data.models.Homework
 import ma.n1akai.edusync.data.models.Title
 import ma.n1akai.edusync.databinding.HomeworksListItemBinding
 import ma.n1akai.edusync.databinding.TitleItemBinding
+import ma.n1akai.edusync.ui.home.dashboard.DashboardAdapter
 
 class HomeworkAdapter : RecyclerView.Adapter<HomeworkHolder>() {
 
@@ -16,6 +17,7 @@ class HomeworkAdapter : RecyclerView.Adapter<HomeworkHolder>() {
             field = value
             notifyDataSetChanged()
         }
+    lateinit var listener: DashboardAdapter.OnHomeworkCheckedChangedListener
 
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
@@ -44,7 +46,7 @@ class HomeworkAdapter : RecyclerView.Adapter<HomeworkHolder>() {
     override fun onBindViewHolder(holder: HomeworkHolder, position: Int) {
         val item = items[position]
         when(holder) {
-            is HomeworkHolder.HomeworkViewHolder -> holder.bind(item as Homework)
+            is HomeworkHolder.HomeworkViewHolder -> holder.bind(item as Homework, listener)
             is HomeworkHolder.TitleViewHolder -> holder.bind(item as Title)
         }
     }

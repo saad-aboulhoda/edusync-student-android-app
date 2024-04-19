@@ -34,7 +34,7 @@ class AttendanceFragment : BaseFragment<FragmentAttendanceBinding>() {
             layoutManager = LinearLayoutManager(requireActivity())
         }
         binding.apply {
-            viewModel.attendances.observe(viewLifecycleOwner) {
+            viewModel.absents.observe(viewLifecycleOwner) {
                 when(it) {
                     is UiState.Failure -> {
                         attendanceProgress.hide()

@@ -18,9 +18,9 @@ class AttendanceViewModel @Inject constructor(
     private val repository: StudentRepository
 ) : ViewModel() {
 
-    private val _attendances = MutableLiveData<UiState<List<Any>>>()
-    val attendances: LiveData<UiState<List<Any>>>
-        get() = _attendances
+    private val _absents = MutableLiveData<UiState<List<Any>>>()
+    val absents: LiveData<UiState<List<Any>>>
+        get() = _absents
 
     init {
         getAttendances()
@@ -28,22 +28,22 @@ class AttendanceViewModel @Inject constructor(
 
     fun getAttendances() {
         viewModelScope.safeLaunch({
-            _attendances.value = UiState.Loading
-            val attendances = repository.getAttendances()
-            if (attendances is UiState.Success) {
+            _absents.value = UiState.Loading
+            val absents = repository.getAbsents()
+            if (absents is UiState.Success) {
                 val list = mutableListOf<Any>()
-                val map = attendances.data.groupBy {
-                    it.year
+                val map = absents.data.groupBy {
+                    it.date
                 }
                 map.keys.forEach {
-                    list.add(Title("Year $it", R.drawable.ic_calendar_blank))
+                    list.add(Title(it, R.drawable.ic_calendar_blank))
                     list.addAll(map[it]!!)
                 }
 
-                _attendances.value = UiState.Success(list)
+                _absents.value = UiState.Success(list)
             }
         }) {
-            _attendances.value = UiState.Failure(it)
+            _absents.value = UiState.Failure(it)
         }
     }
 

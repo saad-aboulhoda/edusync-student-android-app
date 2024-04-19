@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.data.models.Title
+import ma.n1akai.edusync.data.network.responses.BaseResponse
 import ma.n1akai.edusync.data.repository.StudentRepository
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.safeLaunch
@@ -23,11 +24,33 @@ class DashboardViewModel @Inject constructor(
     val dashboardListItemsData: LiveData<UiState<List<Any>>>
         get() = _dashboardListItemsData
 
+    private val _updateHomework = MutableLiveData<UiState<BaseResponse>>()
+    val updateHomework: LiveData<UiState<BaseResponse>>
+        get() = _updateHomework
+
     init {
         getDashboardListItems()
     }
 
-    private fun getDashboardListItems() {
+    fun checkHomework(homeworkId: Int) {
+        viewModelScope.safeLaunch({
+            _updateHomework.value = UiState.Loading
+            _updateHomework.value = studentRepository.checkHomework(homeworkId)
+        }) {
+            _updateHomework.value = UiState.Failure(it)
+        }
+    }
+
+    fun unCheckHomework(studentHomework: Int) {
+        viewModelScope.safeLaunch({
+            _updateHomework.value = UiState.Loading
+            _updateHomework.value = studentRepository.unCheckHomework(studentHomework)
+        }) {
+            _updateHomework.value = UiState.Failure(it)
+        }
+    }
+
+    fun getDashboardListItems() {
         viewModelScope.safeLaunch({
             _dashboardListItemsData.postValue(UiState.Loading)
             val testDiffered = async { studentRepository.getTests() }
@@ -54,7 +77,7 @@ class DashboardViewModel @Inject constructor(
                 )
                 dashboardList.addAll(homeworks.data.subList(0, 8))
                 _dashboardListItemsData.postValue(UiState.Success(dashboardList))
-            } else if(test is UiState.Failure) {
+            } else if (test is UiState.Failure) {
                 _dashboardListItemsData.postValue(UiState.Failure(test.error))
             }
         }) {

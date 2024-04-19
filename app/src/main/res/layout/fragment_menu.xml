@@ -160,7 +160,6 @@
             app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toStartOf="@+id/menu_examination"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
@@ -199,7 +198,7 @@
             android:clickable="true"
             android:focusable="true"
             app:cardBackgroundColor="@android:color/transparent"
-            app:layout_constraintEnd_toStartOf="@+id/menu_reports_cards"
+            app:layout_constraintEnd_toStartOf="@+id/menu_profile"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/menu_fee_details"
             app:layout_constraintTop_toTopOf="parent"
@@ -208,8 +207,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="4dp">
 
                 <ImageView
                     android:layout_width="85dp"
@@ -233,11 +232,12 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/menu_reports_cards"
+            android:id="@+id/menu_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
+            android:orientation="vertical"
             android:textSize="16sp"
             app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -249,29 +249,30 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="4dp">
 
                 <ImageView
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_report_cards" />
+                    android:src="@drawable/ic_profile_male" />
 
                 <TextView
                     style="@style/App_MediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/report_cards"
+                    android:text="@string/profile"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -289,6 +290,7 @@
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical"
+            android:visibility="gone"
             app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toStartOf="@+id/menu_multimedia"
             app:layout_constraintHorizontal_bias="0.5"
@@ -330,6 +332,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
+            android:visibility="gone"
             app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toStartOf="@+id/menu_profile"
             app:layout_constraintHorizontal_bias="0.5"
@@ -365,17 +368,17 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/menu_profile"
+            android:id="@+id/menu_reports_cards"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-            android:orientation="vertical"
             android:textSize="16sp"
+            android:visibility="gone"
             app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/menu_multimedia"
+            app:layout_constraintStart_toEndOf="@+id/menu_examination"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
 
@@ -390,21 +393,22 @@
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_profile_male" />
+                    android:src="@drawable/ic_report_cards" />
 
                 <TextView
                     style="@style/App_MediumText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile"
+                    android:text="@string/report_cards"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

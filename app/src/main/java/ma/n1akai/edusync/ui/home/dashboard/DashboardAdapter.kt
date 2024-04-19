@@ -1,6 +1,7 @@
 package ma.n1akai.edusync.ui.home.dashboard
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ma.n1akai.edusync.R
@@ -19,6 +20,7 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
             field = value
             notifyDataSetChanged()
         }
+    lateinit var onHomeworkCheckedChangedListener: OnHomeworkCheckedChangedListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardHolder {
         return when (viewType) {
@@ -50,7 +52,7 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
     override fun onBindViewHolder(holder: DashboardHolder, position: Int) {
         val item = items[position]
         when (holder) {
-            is DashboardHolder.HomeworkViewHolder -> holder.bind(item as Homework)
+            is DashboardHolder.HomeworkViewHolder -> holder.bind(item as Homework, onHomeworkCheckedChangedListener)
             is DashboardHolder.TestViewHolder -> holder.bind(item as Test)
             is DashboardHolder.TitleViewHolder -> holder.bind(item as Title)
         }
@@ -63,5 +65,11 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
             is Homework -> R.layout.homeworks_list_item
             else -> throw IllegalArgumentException("Invalid Item")
         }
+    }
+
+    interface OnHomeworkCheckedChangedListener {
+
+        fun onHomeworkCheckedChanged(homework: Homework, view: View, checked: Boolean)
+
     }
 }
