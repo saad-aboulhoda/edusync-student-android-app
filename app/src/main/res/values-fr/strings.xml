@@ -8,6 +8,8 @@
     <string name="password">Mot de passe</string>
     <string name="password_hint">********</string>
     <string name="forget_password">Mot de passe oublié</string>
+    <string name="email_password_required">L\'e-mail et le mot de passe sont requis</string>
+    <string name="email_not_valid">L\'e-mail n\'est pas valide</string>
 
     <!-- Mot de passe oublié - Fragment EnterEmail -->
     <string name="generate_otp">Générer un OTP</string>
@@ -24,7 +26,7 @@
     <string name="submit">Soumettre</string>
 
     <!-- Accueil - Fragment Dashboard -->
-    <string name="latest_tests">Derniers tests</string>
+    <string name="latest_tests">Derniers examens</string>
     <string name="homeworks">Devoirs</string>
 
     <!-- Accueil - Menu -->
@@ -38,6 +40,7 @@
     <string name="multimedia">Multimédia</string>
     <string name="profile">Profil</string>
     <string name="logout">Déconnexion</string>
+    <string name="more">Plus</string>
 
     <!-- Accueil - Fragment Profile -->
     <string name="roll_number">Numéro de rouleau</string>

@@ -98,7 +98,8 @@ class HomeActivity : AppCompatActivity() {
                         binding.homeIvProfile.show()
                     }
                 }
-                R.id.profileFragment -> {
+                R.id.profileFragment,
+                R.id.homeworkFragment -> {
                     binding.toolbar.apply {
                         setLogo(null)
                         setSubtitle(null)

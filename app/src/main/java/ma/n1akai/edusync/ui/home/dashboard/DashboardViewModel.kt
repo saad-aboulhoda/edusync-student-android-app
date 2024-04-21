@@ -10,13 +10,15 @@ import ma.n1akai.edusync.R
 import ma.n1akai.edusync.data.models.Title
 import ma.n1akai.edusync.data.network.responses.BaseResponse
 import ma.n1akai.edusync.data.repository.StudentRepository
+import ma.n1akai.edusync.util.ResourcesProvider
 import ma.n1akai.edusync.util.UiState
 import ma.n1akai.edusync.util.safeLaunch
 import javax.inject.Inject
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
-    private val studentRepository: StudentRepository
+    private val studentRepository: StudentRepository,
+    private val resourcesProvider: ResourcesProvider
 ) : ViewModel() {
 
     private val _dashboardListItemsData =
@@ -63,7 +65,7 @@ class DashboardViewModel @Inject constructor(
             if (test is UiState.Success && homeworks is UiState.Success) {
                 dashboardList.add(
                     Title(
-                        "Latest Tests",
+                        resourcesProvider.getString(R.string.latest_tests),
                         R.drawable.ic_calendar_check
                     )
                 )
@@ -75,8 +77,9 @@ class DashboardViewModel @Inject constructor(
 
                 dashboardList.add(
                     Title(
-                        "Homeworks",
-                        R.drawable.ic_pencil
+                        resourcesProvider.getString(R.string.homeworks),
+                        R.drawable.ic_pencil,
+                        DashboardFragmentDirections.actionDashboardFragmentToHomeworkFragment()
                     )
 
                 )

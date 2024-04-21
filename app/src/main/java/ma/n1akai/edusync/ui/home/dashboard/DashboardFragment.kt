@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +36,8 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView()
         checkAndUnCheckOListener()
+        onHomeworkClick()
+        onMoreClick()
 
     }
 
@@ -102,6 +107,28 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
             } else if (it is UiState.Failure) {
                 theHomework.student_homework = -1
                 binding.root.snackbar(it.error!!)
+            }
+        }
+    }
+
+    private fun onHomeworkClick() {
+        dashboardAdapter.onHomeworkClickListener = object : DashboardAdapter.OnHomeworkClickListener {
+            override fun onHomeworkClick(homework: Homework, view: View) {
+                val dialog = AlertDialog.Builder(requireContext())
+                    .setTitle(homework.homework)
+                    .setMessage(homework.description)
+                    .create()
+                dialog.show()
+            }
+
+        }
+    }
+
+    private fun onMoreClick() {
+        dashboardAdapter.onMoreClickListener = object : DashboardAdapter.OnMoreClickListener {
+            override fun onMoreClick(navDirections: NavDirections, view: View) {
+                findNavController()
+                    .navigate(navDirections)
             }
         }
     }

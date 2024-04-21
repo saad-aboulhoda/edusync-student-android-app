@@ -1,5 +1,6 @@
 package ma.n1akai.edusync.ui.home.dashboard
 
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import ma.n1akai.edusync.data.models.Homework
@@ -17,10 +18,16 @@ sealed class DashboardHolder(
 
     class TitleViewHolder(private val binding: TitleItemBinding) :
         DashboardHolder(binding) {
-        fun bind(title: Title) {
+        fun bind(title: Title, onMoreClickListener: DashboardAdapter.OnMoreClickListener) {
             binding.let {
                 it.title.text = title.title
                 it.title.setCompoundDrawablesWithIntrinsicBounds(title.icon, 0, 0, 0)
+                title.navDirections?.let { navDirections ->
+                    it.more.isVisible = true
+                    it.more.setOnClickListener { view ->
+                        onMoreClickListener.onMoreClick(navDirections, view)
+                    }
+                }
             }
         }
     }
@@ -47,7 +54,11 @@ sealed class DashboardHolder(
 
     class HomeworkViewHolder(private val binding: HomeworksListItemBinding) :
         DashboardHolder(binding) {
-        fun bind(hw: Homework, listener: DashboardAdapter.OnHomeworkCheckedChangedListener) {
+        fun bind(
+            hw: Homework,
+            listener: DashboardAdapter.OnHomeworkCheckedChangedListener,
+            onHomeworkClickListener: DashboardAdapter.OnHomeworkClickListener
+        ) {
             binding.apply {
                 homework.text = hw.homework
                 val concatCourseAndDate =
@@ -61,6 +72,9 @@ sealed class DashboardHolder(
                     } else {
                         hw.finished = 0
                     }
+                }
+                root.setOnClickListener {
+                    onHomeworkClickListener.onHomeworkClick(hw, it)
                 }
             }
         }

@@ -9,6 +9,8 @@
     <string name="password">كلمة المرور</string>
     <string name="password_hint">********</string>
     <string name="forget_password">نسيت كملة المرور</string>
+    <string name="email_password_required">البريد الإلكتروني وكلمة المرور مطلوبان</string>
+    <string name="email_not_valid">البريد الإلكتروني غير صالح</string>
 
     <!-- Forget Password - EnterEmailFragment -->
     <string name="generate_otp">OTP أنشيء</string>
@@ -39,6 +41,7 @@
     <string name="multimedia">الوسائط المتعددة</string>
     <string name="profile">الملف الشخصي</string>
     <string name="logout">تسجيل الخروج</string>
+    <string name="more">المزيد</string>
 
     <!-- Home - ProfileFragment -->
     <string name="roll_number">رقم القائمة</string>

@@ -3,6 +3,7 @@ package ma.n1akai.edusync.ui.home.dashboard
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavDirections
 import androidx.recyclerview.widget.RecyclerView
 import ma.n1akai.edusync.R
 import ma.n1akai.edusync.data.models.Homework
@@ -20,7 +21,9 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
             field = value
             notifyDataSetChanged()
         }
+    lateinit var onHomeworkClickListener: OnHomeworkClickListener
     lateinit var onHomeworkCheckedChangedListener: OnHomeworkCheckedChangedListener
+    lateinit var onMoreClickListener: OnMoreClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardHolder {
         return when (viewType) {
@@ -52,9 +55,14 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
     override fun onBindViewHolder(holder: DashboardHolder, position: Int) {
         val item = items[position]
         when (holder) {
-            is DashboardHolder.HomeworkViewHolder -> holder.bind(item as Homework, onHomeworkCheckedChangedListener)
+            is DashboardHolder.HomeworkViewHolder -> holder.bind(
+                item as Homework,
+                onHomeworkCheckedChangedListener,
+                onHomeworkClickListener
+            )
+
             is DashboardHolder.TestViewHolder -> holder.bind(item as Test)
-            is DashboardHolder.TitleViewHolder -> holder.bind(item as Title)
+            is DashboardHolder.TitleViewHolder -> holder.bind(item as Title, onMoreClickListener)
         }
     }
 
@@ -67,9 +75,17 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
         }
     }
 
+    interface OnHomeworkClickListener {
+        fun onHomeworkClick(homework: Homework, view: View)
+    }
+
     interface OnHomeworkCheckedChangedListener {
 
         fun onHomeworkCheckedChanged(homework: Homework, view: View, checked: Boolean)
 
+    }
+
+    interface OnMoreClickListener {
+        fun onMoreClick(navDirections: NavDirections, view: View)
     }
 }

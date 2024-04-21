@@ -8,6 +8,8 @@
     <string name="password">Password</string>
     <string name="password_hint">********</string>
     <string name="forget_password">Forget Password</string>
+    <string name="email_password_required">Email and Password are required</string>
+    <string name="email_not_valid">Email is not valid</string>
 
     <!-- Forget Password - EnterEmailFragment -->
     <string name="generate_otp">Generate OTP</string>
@@ -38,6 +40,7 @@
     <string name="multimedia">Multimedia</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+    <string name="more">More</string>
 
     <!-- Home - ProfileFragment -->
     <string name="roll_number">Roll Number</string>

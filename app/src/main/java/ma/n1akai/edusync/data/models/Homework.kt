@@ -6,5 +6,6 @@ data class Homework(
     val homework: String,
     val course_name: String,
     val created_at: String,
-    var finished: Int
+    var finished: Int,
+    val description: String
 )
