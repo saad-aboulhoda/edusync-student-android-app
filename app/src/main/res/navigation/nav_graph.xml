@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_homeworkFragment"
             app:destination="@id/homeworkFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_markFragment"
+            app:destination="@id/markFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -175,4 +178,9 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
     </fragment>
+    <fragment
+        android:id="@+id/markFragment"
+        android:name="ma.n1akai.edusync.ui.home.mark.MarkFragment"
+        android:label="@string/marks"
+        tools:layout="@layout/fragment_mark" />
 </navigation>

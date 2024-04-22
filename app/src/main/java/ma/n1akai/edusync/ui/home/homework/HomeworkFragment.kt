@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ma.n1akai.edusync.R
@@ -34,6 +35,7 @@ class HomeworkFragment : BaseFragment<FragmentHomeworkBinding>() {
         super.onCreate(savedInstanceState)
         checkAndUnCheckObserver()
         dashboardObserver()
+        onHomeworkClick()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -97,6 +99,19 @@ class HomeworkFragment : BaseFragment<FragmentHomeworkBinding>() {
                     binding.root.snackbar(it.error!!)
                 }
             }
+        }
+    }
+
+    private fun onHomeworkClick() {
+        homeworksAdapter.onHomeworkClickListener = object : DashboardAdapter.OnHomeworkClickListener {
+            override fun onHomeworkClick(homework: Homework, view: View) {
+                val dialog = AlertDialog.Builder(requireContext())
+                    .setTitle(homework.homework)
+                    .setMessage(homework.description)
+                    .create()
+                dialog.show()
+            }
+
         }
     }
 

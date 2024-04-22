@@ -66,7 +66,8 @@ class DashboardViewModel @Inject constructor(
                 dashboardList.add(
                     Title(
                         resourcesProvider.getString(R.string.latest_tests),
-                        R.drawable.ic_calendar_check
+                        R.drawable.ic_calendar_check,
+                        DashboardFragmentDirections.actionDashboardFragmentToMarkFragment()
                     )
                 )
                 if (test.data.size > 4) {

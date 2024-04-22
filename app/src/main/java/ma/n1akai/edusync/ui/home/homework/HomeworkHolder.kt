@@ -1,5 +1,6 @@
 package ma.n1akai.edusync.ui.home.homework
 
+import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import ma.n1akai.edusync.data.models.Homework
@@ -26,15 +27,23 @@ sealed class HomeworkHolder(
 
     class HomeworkViewHolder(private val binding: HomeworksListItemBinding) :
         HomeworkHolder(binding) {
-        fun bind(hw: Homework, listener: DashboardAdapter.OnHomeworkCheckedChangedListener) {
+        fun bind(
+            hw: Homework,
+            context: Context,
+            listener: DashboardAdapter.OnHomeworkCheckedChangedListener,
+            onHomeworkClickListener: DashboardAdapter.OnHomeworkClickListener
+        ) {
             binding.apply {
                 homework.text = hw.homework
                 val concatCourseAndDate =
-                    "${hw.course_name} - ${formatToRelativeTime(hw.created_at)}"
+                    "${hw.course_name} - ${formatToRelativeTime(hw.created_at, context)}"
                 courseAndDate.text = concatCourseAndDate
                 isDone.isChecked = hw.finished == 1
                 isDone.setOnCheckedChangeListener { buttonView, isChecked ->
                     listener.onHomeworkCheckedChanged(hw, buttonView, isChecked)
+                }
+                root.setOnClickListener {
+                    onHomeworkClickListener.onHomeworkClick(hw, it)
                 }
             }
         }

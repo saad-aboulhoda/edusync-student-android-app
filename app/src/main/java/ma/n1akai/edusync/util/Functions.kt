@@ -1,16 +1,15 @@
 package ma.n1akai.edusync.util
 
+import android.content.Context
+import ma.n1akai.edusync.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 
 fun stringToDate(date: String, customFormat: String = ""): Date? {
 
-    var format = ""
-    if (customFormat.isBlank()) {
-        format = "yyyy-MM-dd HH:mm:ss"
-    } else {
-        format = customFormat
+    val format: String = customFormat.ifBlank {
+        "yyyy-MM-dd HH:mm:ss"
     }
     val formater = SimpleDateFormat(format)
     try {
@@ -21,13 +20,13 @@ fun stringToDate(date: String, customFormat: String = ""): Date? {
     return null
 }
 
-fun formatToRelativeTime(date: String) : String {
+fun formatToRelativeTime(date: String, context: Context) : String {
     val theDate = stringToDate(date)
 
     val now = Calendar.getInstance().time
 
     if (theDate == null)
-        return "Unknown date"
+        return context.getString(R.string.unknown_date)
 
     val diffInMs = now.time - theDate.time
     val diffInMin = diffInMs / 60000
@@ -37,12 +36,12 @@ fun formatToRelativeTime(date: String) : String {
     val diffInYear = diffInMonth / 12
 
     return when {
-        diffInMin < 1 -> "Just now"
-        diffInMin < 60 -> "$diffInMin minutes ago"
-        diffInHour < 24 -> "$diffInHour hours ago"
-        diffInDay < 30 -> "$diffInDay days ago"
-        diffInMonth < 12 -> "$diffInMonth months ago"
-        else -> "$diffInYear years ago"
+        diffInMin < 2 -> context.getString(R.string.just_now)
+        diffInMin < 60 -> context.getString(R.string.minutes_ago, diffInMin)
+        diffInHour < 24 -> context.getString(R.string.hours_ago, diffInHour)
+        diffInDay < 30 -> context.getString(R.string.days_ago, diffInDay)
+        diffInMonth < 12 -> context.getString(R.string.months_ago, diffInMonth)
+        else -> context.getString(R.string.years_ago, diffInYear)
     }
 
 }

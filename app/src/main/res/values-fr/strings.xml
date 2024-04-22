@@ -28,12 +28,13 @@
     <!-- Accueil - Fragment Dashboard -->
     <string name="latest_tests">Derniers examens</string>
     <string name="homeworks">Devoirs</string>
+    <string name="marks">Examens</string>
 
     <!-- Accueil - Menu -->
-    <string name="dashboard">Tableau de bord</string>
+    <string name="dashboard">Accueil</string>
     <string name="homework">Devoir</string>
     <string name="attendance">Présence</string>
-    <string name="fee_details">Détails des frais</string>
+    <string name="fee_details">Frais</string>
     <string name="examination">Examen</string>
     <string name="report_cards">Bulletins</string>
     <string name="calendar">Calendrier</string>
@@ -41,6 +42,15 @@
     <string name="profile">Profil</string>
     <string name="logout">Déconnexion</string>
     <string name="more">Plus</string>
+
+    <!-- Home - HomeworkFragment -->
+    <string name="unknown_date">Date inconnue</string>
+    <string name="just_now">Juste maintenant</string>
+    <string name="minutes_ago">il y a %d minutes</string>
+    <string name="hours_ago">il y a %d heures</string>
+    <string name="days_ago">il y a %d jours</string>
+    <string name="months_ago">il y a %d mois</string>
+    <string name="years_ago">il y a %d ans</string>
 
     <!-- Accueil - Fragment Profile -->
     <string name="roll_number">Numéro de rouleau</string>

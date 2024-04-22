@@ -1,5 +1,6 @@
 package ma.n1akai.edusync.ui.home.dashboard
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,28 +22,33 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
             field = value
             notifyDataSetChanged()
         }
+
+    private lateinit var context: Context
     lateinit var onHomeworkClickListener: OnHomeworkClickListener
     lateinit var onHomeworkCheckedChangedListener: OnHomeworkCheckedChangedListener
     lateinit var onMoreClickListener: OnMoreClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardHolder {
+        if (!this::context.isInitialized) {
+            context = parent.context
+        }
         return when (viewType) {
             R.layout.title_item -> DashboardHolder.TitleViewHolder(
                 TitleItemBinding
-                    .inflate(LayoutInflater.from(parent.context), parent, false)
+                    .inflate(LayoutInflater.from(context), parent, false)
             )
 
             R.layout.notes_list_item -> {
                 DashboardHolder.TestViewHolder(
                     NotesListItemBinding
-                        .inflate(LayoutInflater.from(parent.context), parent, false)
+                        .inflate(LayoutInflater.from(context), parent, false)
                 )
             }
 
             R.layout.homeworks_list_item -> {
                 DashboardHolder.HomeworkViewHolder(
                     HomeworksListItemBinding
-                        .inflate(LayoutInflater.from(parent.context), parent, false)
+                        .inflate(LayoutInflater.from(context), parent, false)
                 )
             }
 
@@ -57,11 +63,12 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardHolder>() {
         when (holder) {
             is DashboardHolder.HomeworkViewHolder -> holder.bind(
                 item as Homework,
+                context,
                 onHomeworkCheckedChangedListener,
                 onHomeworkClickListener
             )
 
-            is DashboardHolder.TestViewHolder -> holder.bind(item as Test)
+            is DashboardHolder.TestViewHolder -> holder.bind(item as Test, context)
             is DashboardHolder.TitleViewHolder -> holder.bind(item as Title, onMoreClickListener)
         }
     }

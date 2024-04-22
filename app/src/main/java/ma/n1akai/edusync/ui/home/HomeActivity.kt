@@ -88,8 +88,8 @@ class HomeActivity : AppCompatActivity() {
     private fun destinationUi() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val id = destination.id
-            when(id) {
-                R.id.menuFragment-> {
+            when (id) {
+                R.id.menuFragment -> {
                     binding.toolbar.apply {
                         setLogo(null)
                         setSubtitle(null)
@@ -98,7 +98,9 @@ class HomeActivity : AppCompatActivity() {
                         binding.homeIvProfile.show()
                     }
                 }
+
                 R.id.profileFragment,
+                R.id.markFragment,
                 R.id.homeworkFragment -> {
                     binding.toolbar.apply {
                         setLogo(null)
@@ -106,6 +108,7 @@ class HomeActivity : AppCompatActivity() {
                         binding.homeIvProfile.hide()
                     }
                 }
+
                 R.id.dashboardFragment -> {
                     setUpToolbarTitleSubTitleLogo()
                     binding.homeIvProfile.show()

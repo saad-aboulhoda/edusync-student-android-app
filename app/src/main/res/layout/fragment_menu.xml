@@ -32,30 +32,37 @@
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="4dp">
 
                 <ImageView
+                    android:id="@+id/imageView3"
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_dashboard" />
+                    android:src="@drawable/ic_dashboard"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/textView2"
                     style="@style/App_MediumText"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -72,30 +79,36 @@
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="4dp">
 
                 <ImageView
+                    android:id="@+id/imageView4"
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_homework" />
+                    android:src="@drawable/ic_homework"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     style="@style/App_MediumText"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/homework"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -112,18 +125,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="4dp">
 
                 <ImageView
+                    android:id="@+id/imageView5"
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_attendance" />
+                    android:src="@drawable/ic_attendance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     style="@style/App_MediumText"
@@ -133,9 +149,12 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -164,30 +183,36 @@
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="4dp">
 
                 <ImageView
+                    android:id="@+id/imageView6"
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_fee_details" />
+                    android:src="@drawable/ic_fee_details"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     style="@style/App_MediumText"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/fee_details"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -204,18 +229,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="4dp">
 
                 <ImageView
+                    android:id="@+id/imageView7"
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_examination" />
+                    android:src="@drawable/ic_examination"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     style="@style/App_MediumText"
@@ -224,10 +252,13 @@
                     android:text="@string/examination"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -246,30 +277,36 @@
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@android:color/transparent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="4dp">
 
                 <ImageView
+                    android:id="@+id/imageView8"
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:background="@drawable/circle_white_bg"
                     android:scaleType="center"
-                    android:src="@drawable/ic_profile_male" />
+                    android:src="@drawable/ic_profile_male"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     style="@style/App_MediumText"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/profile"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -302,8 +339,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="4dp">
 
                 <ImageView
                     android:layout_width="85dp"
@@ -343,8 +380,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="4dp">
 
                 <ImageView
                     android:layout_width="85dp"
@@ -385,8 +422,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="4dp">
 
                 <ImageView
                     android:layout_width="85dp"

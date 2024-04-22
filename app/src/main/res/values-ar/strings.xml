@@ -29,6 +29,7 @@
     <!-- Home - DashboardFragment -->
     <string name="latest_tests">آخر الاختبارات</string>
     <string name="homeworks">الواجبات المنزلية</string>
+    <string name="marks">العلامات</string>
 
     <!-- Home - Menu -->
     <string name="dashboard">لوحة التحكم</string>
@@ -42,6 +43,15 @@
     <string name="profile">الملف الشخصي</string>
     <string name="logout">تسجيل الخروج</string>
     <string name="more">المزيد</string>
+
+    <!-- Home - HomeworkFragment -->
+    <string name="unknown_date">تاريخ غير معروف</string>
+    <string name="just_now">الآن</string>
+    <string name="minutes_ago">قبل %d دقيقة</string>
+    <string name="hours_ago">قبل %d ساعة</string>
+    <string name="days_ago">قبل %d يوم</string>
+    <string name="months_ago">قبل %d من الأشهر</string>
+    <string name="years_ago">قبل %d سنة</string>
 
     <!-- Home - ProfileFragment -->
     <string name="roll_number">رقم القائمة</string>

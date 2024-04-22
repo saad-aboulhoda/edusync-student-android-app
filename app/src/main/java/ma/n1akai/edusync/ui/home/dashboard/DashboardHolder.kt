@@ -1,5 +1,6 @@
 package ma.n1akai.edusync.ui.home.dashboard
 
+import android.content.Context
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -34,10 +35,10 @@ sealed class DashboardHolder(
 
     class TestViewHolder(private val binding: NotesListItemBinding) :
         DashboardHolder(binding) {
-        fun bind(test: Test) {
+        fun bind(test: Test, context: Context) {
             binding.apply {
                 tvLabel.text = test.course_name
-                tvDate.text = formatToRelativeTime(test.created_at)
+                tvDate.text = formatToRelativeTime(test.created_at, context)
                 tvNote.text = test.mark.toString()
                 val concatModuleAndCc = "${test.course_code} - ${test.test_code}"
                 tvModuleCc.text = concatModuleAndCc
@@ -56,13 +57,14 @@ sealed class DashboardHolder(
         DashboardHolder(binding) {
         fun bind(
             hw: Homework,
+            context: Context,
             listener: DashboardAdapter.OnHomeworkCheckedChangedListener,
             onHomeworkClickListener: DashboardAdapter.OnHomeworkClickListener
         ) {
             binding.apply {
                 homework.text = hw.homework
                 val concatCourseAndDate =
-                    "${hw.course_name} - ${formatToRelativeTime(hw.created_at)}"
+                    "${hw.course_name} - ${formatToRelativeTime(hw.created_at, context)}"
                 courseAndDate.text = concatCourseAndDate
                 isDone.isChecked = hw.finished == 1
                 isDone.setOnCheckedChangeListener { buttonView, isChecked ->
