@@ -2,16 +2,12 @@
 
 The **Edusync Student App** is an Android application that provides students with an organized platform to access their courses, assignments, grades, and more. It helps students stay on top of their academic responsibilities efficiently.
 
----
-
 ## Features
 
 - **Course Access**: View course details and materials.
 - **Assignment Tracking**: Submit assignments and monitor deadlines.
 - **Grades Overview**: Check grades and feedback from teachers.
 - **Notifications**: Stay updated with real-time announcements.
-
----
 
 ## Technologies Used
 
