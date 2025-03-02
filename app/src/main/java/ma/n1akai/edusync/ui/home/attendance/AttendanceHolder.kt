@@ -8,6 +8,7 @@ import ma.n1akai.edusync.data.models.Title
 import ma.n1akai.edusync.databinding.AbsentListItemBinding
 import ma.n1akai.edusync.databinding.AttendancePerMonthListItemBinding
 import ma.n1akai.edusync.databinding.TitleItemBinding
+import ma.n1akai.edusync.util.calculateHoursBetween
 import ma.n1akai.edusync.util.monthName
 
 sealed class AttendanceHolder(binding: ViewBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -31,6 +32,7 @@ sealed class AttendanceHolder(binding: ViewBinding) : RecyclerView.ViewHolder(bi
                 tvStartTime.text = absent.getStartTime()
                 tvEndTime.text = absent.getEndTime()
                 tvDate.text = absent.date
+                tvDuration.text = calculateHoursBetween(absent.getStartTime(), absent.getEndTime()).toString() + "h"
             }
         }
     }

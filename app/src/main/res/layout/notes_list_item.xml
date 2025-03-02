@@ -7,63 +7,99 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    app:cardCornerRadius="12dp"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/minnesota_vikings_gradiant"
-        android:padding="8dp">
+        android:background="@color/white"
+        android:padding="16dp">
 
+        <!-- Subject Label -->
         <TextView
             android:id="@+id/tv_label"
             style="@style/App_MediumText"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawablePadding="6dp"
             android:ellipsize="end"
+            android:gravity="center_horizontal"
             android:maxLines="1"
             android:scrollHorizontally="true"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:drawableStartCompat="@drawable/subject_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Mathématique" />
 
+        <!-- Added a divider -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="#F0F0F0"
+            app:layout_constraintTop_toBottomOf="@id/tv_label" />
+
+        <!-- Module code and exam info -->
         <TextView
             android:id="@+id/tv_module_cc"
-            style="@style/App_SmallText"
+            style="@style/App_MediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:layout_marginTop="12dp"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:textStyle="bold"
+            app:drawableStartCompat="@drawable/document_icon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_label"
+            app:layout_constraintTop_toBottomOf="@id/divider"
             tools:text="M201 - CC1" />
 
+        <!-- Date with calendar icon -->
         <TextView
             android:id="@+id/tv_date"
-            style="@style/App_SmallText"
+            style="@style/App_MediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="6dp"
+            android:gravity="center"
             android:textColor="@color/light_grey"
+            app:drawableStartCompat="@drawable/calendar_icon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_module_cc"
             tools:text="26/03/2024" />
 
-        <TextView
-            android:id="@+id/tv_note"
-            style="@style/App_MediumText"
+        <!-- Grade with background -->
+        <FrameLayout
+            android:id="@+id/grade_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:textStyle="bold"
+            android:background="@drawable/grade_background"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="18" />
+            app:layout_constraintTop_toBottomOf="@id/divider">
 
+            <TextView
+                android:id="@+id/tv_note"
+                style="@style/App_MediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#0060A8"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="18" />
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

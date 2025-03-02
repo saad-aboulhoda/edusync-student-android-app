@@ -7,41 +7,109 @@
     android:layout_margin="4dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardBackgroundColor="#5614B0">
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="16dp">
 
+        <!-- Improved checkbox with custom colors -->
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/is_done"
-            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:buttonTint="#0060A8"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Priority indicator (New) -->
+        <View
+            android:id="@+id/priority_indicator"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="#0060A8"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <!-- Homework title -->
         <TextView
             android:id="@+id/homework"
-            style="@style/App_MediumText"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
+            style="@style/App_SmallText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toStartOf="@+id/date_due_chip"
             app:layout_constraintStart_toEndOf="@+id/is_done"
-            app:layout_constraintTop_toTopOf="@+id/is_done"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Learn Chapter 5 with one Essay" />
 
+        <!-- Course and date with icons -->
         <TextView
-            android:id="@+id/course_and_date"
+            android:id="@+id/course"
             style="@style/App_SmallText"
-            android:textColor="@color/light_grey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/is_done"
+            android:gravity="center"
+            android:textColor="@color/light_grey"
+            app:layout_constraintStart_toStartOf="@+id/homework"
             app:layout_constraintTop_toBottomOf="@+id/homework"
-            tools:text="English - Today" />
+            tools:text="English" />
+
+        <!-- Due date chip (New) -->
+        <FrameLayout
+            android:id="@+id/date_due_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grade_background"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/homework"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/homework">
+
+            <TextView
+                android:id="@+id/tv_date_due_chip"
+                style="@style/App_MediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/calendar_icon"
+                android:drawableTint="#0060A8"
+                android:gravity="center"
+                android:textColor="#0060A8"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="10 months ago" />
+        </FrameLayout>
+
+        <!-- Progress indicator for multi-part assignments (New) -->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/assignment_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:progress="60"
+            android:visibility="gone"
+            app:indicatorColor="#0060A8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/course"
+            app:layout_constraintTop_toBottomOf="@+id/course"
+            app:trackColor="#E6F0F9"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

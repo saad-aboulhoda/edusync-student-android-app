@@ -96,6 +96,7 @@ class HomeActivity : AppCompatActivity() {
                         setTitle(null)
                         setNavigationIcon(R.drawable.ic_close)
                         binding.homeIvProfile.show()
+                        hide()
                     }
                 }
 
@@ -106,6 +107,7 @@ class HomeActivity : AppCompatActivity() {
                         setLogo(null)
                         setSubtitle(null)
                         binding.homeIvProfile.hide()
+                        show()
                     }
                 }
 
@@ -114,7 +116,10 @@ class HomeActivity : AppCompatActivity() {
                     binding.homeIvProfile.show()
                 }
 
-                else -> binding.homeIvProfile.show()
+                else -> {
+                    binding.homeIvProfile.show()
+                    binding.toolbar.show()
+                }
             }
         }
     }
@@ -131,6 +136,7 @@ class HomeActivity : AppCompatActivity() {
                     navController
                         .navigate(R.id.action_dashboardFragment_to_menuFragment)
                 }
+                show()
             }
         }
     }

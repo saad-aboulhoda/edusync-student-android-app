@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="main_bg">#f0f2f5</color>
+    <color name="black">#050505</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#8F8F8F</color>
-    <color name="light_grey">#F3F4F5</color>
+    <color name="light_grey">#65676b</color>
 
     <color name="seed">#0066b2</color>
     <color name="md_theme_light_primary">#0060A8</color>

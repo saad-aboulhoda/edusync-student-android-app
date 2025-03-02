@@ -44,17 +44,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     private fun setUpRecyclerView() {
         binding.dashboardRc.apply {
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(requireContext(), 2).apply {
-                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-                    override fun getSpanSize(position: Int): Int {
-                        return when (dashboardAdapter.getItemViewType(position)) {
-                            R.layout.notes_list_item -> 1
-                            else -> 2
-                        }
-                    }
-
-                }
-            }
+            layoutManager = GridLayoutManager(requireContext(), 1)
             adapter = dashboardAdapter
         }
     }
@@ -89,6 +79,9 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
                     checked: Boolean
                 ) {
                     theHomework = homework
+                    if ((homework.finished == 1) == checked) {
+                        return
+                    }
                     if (checked) {
                         viewModel.checkHomework(homework.homework_id)
                     } else {
@@ -112,16 +105,17 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     }
 
     private fun onHomeworkClick() {
-        dashboardAdapter.onHomeworkClickListener = object : DashboardAdapter.OnHomeworkClickListener {
-            override fun onHomeworkClick(homework: Homework, view: View) {
-                val dialog = AlertDialog.Builder(requireContext())
-                    .setTitle(homework.homework)
-                    .setMessage(homework.description)
-                    .create()
-                dialog.show()
-            }
+        dashboardAdapter.onHomeworkClickListener =
+            object : DashboardAdapter.OnHomeworkClickListener {
+                override fun onHomeworkClick(homework: Homework, view: View) {
+                    val dialog = AlertDialog.Builder(requireContext())
+                        .setTitle(homework.homework)
+                        .setMessage(homework.description)
+                        .create()
+                    dialog.show()
+                }
 
-        }
+            }
     }
 
     private fun onMoreClick() {

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.checkbox.MaterialCheckBox
 import ma.n1akai.edusync.data.models.Homework
 import ma.n1akai.edusync.data.models.Test
 import ma.n1akai.edusync.data.models.Title
@@ -63,16 +64,13 @@ sealed class DashboardHolder(
         ) {
             binding.apply {
                 homework.text = hw.homework
-                val concatCourseAndDate =
-                    "${hw.course_name} - ${formatToRelativeTime(hw.created_at, context)}"
-                courseAndDate.text = concatCourseAndDate
+                course.text = hw.course_name
+                tvDateDueChip.text = formatToRelativeTime(hw.created_at, context)
                 isDone.isChecked = hw.finished == 1
-                isDone.setOnCheckedChangeListener { buttonView, isChecked ->
-                    listener.onHomeworkCheckedChanged(hw, buttonView, isChecked)
-                    if (isChecked) {
-                        hw.finished = 1
-                    } else {
-                        hw.finished = 0
+                isDone.setOnClickListener {
+                    if (it is MaterialCheckBox) {
+                        listener.onHomeworkCheckedChanged(hw, it, it.isChecked)
+                        hw.finished = if(it.isChecked) 1 else 0
                     }
                 }
                 root.setOnClickListener {

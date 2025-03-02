@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f0f2f5"
     tools:context=".ui.home.HomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,7 +45,7 @@
             android:minHeight="?attr/actionBarSize"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:subtitleTextColor="@color/light_grey"
+            app:subtitleTextColor="#F4F5F6"
             app:titleTextColor="@color/white">
 
             <de.hdodenhof.circleimageview.CircleImageView

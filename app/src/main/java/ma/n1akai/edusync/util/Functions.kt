@@ -5,6 +5,8 @@ import ma.n1akai.edusync.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
+import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 fun stringToDate(date: String, customFormat: String = ""): Date? {
 
@@ -52,4 +54,14 @@ fun monthName(month: Int): String {
     cal[Calendar.MONTH] = month
     val month_name = month_date.format(cal.time)
     return month_name.uppercase().substring(0, 3)
+}
+
+fun calculateHoursBetween(startTime: String, endTime: String): Long {
+    val format = SimpleDateFormat("HH:mm", Locale.getDefault())
+
+    val t1 = format.parse(startTime) ?: return 0
+    val t2 = format.parse(endTime) ?: return 0
+
+    val diffInMillis = t2.time - t1.time
+    return TimeUnit.MILLISECONDS.toHours(diffInMillis)
 }

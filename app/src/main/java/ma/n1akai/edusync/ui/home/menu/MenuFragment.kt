@@ -52,12 +52,9 @@ class MenuFragment : Fragment(), OnClickListener {
     private fun directions() {
         binding.apply {
             menuAttendance.setOnClickListener(this@MenuFragment)
-            menuCalendar.setOnClickListener(this@MenuFragment)
             menuExamination.setOnClickListener(this@MenuFragment)
             menuFeeDetails.setOnClickListener(this@MenuFragment)
             menuHomework.setOnClickListener(this@MenuFragment)
-            menuMultimedia.setOnClickListener(this@MenuFragment)
-            menuReportsCards.setOnClickListener(this@MenuFragment)
             menuProfile.setOnClickListener(this@MenuFragment)
             menuDashboard.setOnClickListener(this@MenuFragment)
         }
@@ -81,12 +78,9 @@ class MenuFragment : Fragment(), OnClickListener {
         val id = v!!.id
         val directionId = when(id) {
             R.id.menu_attendance -> MenuFragmentDirections.actionMenuFragmentToAttendanceFragment()
-            R.id.menu_calendar -> MenuFragmentDirections.actionMenuFragmentToCalendarFragment()
             R.id.menu_examination -> MenuFragmentDirections.actionMenuFragmentToExaminationFragment()
             R.id.menu_fee_details -> MenuFragmentDirections.actionMenuFragmentToFeeDetailsFragment()
             R.id.menu_homework -> MenuFragmentDirections.actionMenuFragmentToHomeworkFragment()
-            R.id.menu_multimedia -> MenuFragmentDirections.actionMenuFragmentToMultimediaFragment()
-            R.id.menu_reports_cards -> MenuFragmentDirections.actionMenuFragmentToReportCardsFragment()
             R.id.menu_profile -> MenuFragmentDirections.actionMenuFragmentToProfileFragment()
             else -> MenuFragmentDirections.actionMenuFragmentToDashboardFragment()
         }

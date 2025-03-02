@@ -1,6 +1,7 @@
 package ma.n1akai.edusync.ui.home.feedetails
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
@@ -46,9 +47,11 @@ class FeeAdapter : RecyclerView.Adapter<FeeAdapter.MyFeeViewHolder>() {
                      if (fee.is_paid == 0) {
                          feeIsPaid.text = context.getString(R.string.unpaid)
                          feeIsPaid.background = AppCompatResources.getDrawable(context, R.drawable.unpaid_badge)
+                         statusIndicator.setBackgroundColor(Color.parseColor("#E91E3C"))
                      } else {
                          feeIsPaid.text = context.getString(R.string.paid)
                          feeIsPaid.background = AppCompatResources.getDrawable(context, R.drawable.paid_badge)
+                         statusIndicator.setBackgroundColor(Color.parseColor("#12B264"))
                      }
                      val date = stringToDate(fee.fee_date,"yyyy-MM-dd")
                      val formater = SimpleDateFormat("dd MMMM")
